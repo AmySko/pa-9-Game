@@ -14,7 +14,9 @@ influences:
 
 #include <SFML/Graphics.hpp> 
 #include "Table.h"
-#include <windows.h> //for color
+//#include <windows.h> //for color
+//#include <time.h>
+
 
 
 int main(void)
@@ -23,7 +25,8 @@ int main(void)
 	Table t1(*(new sf::Vector2f(70, 15)), sf::Color::White, *(new sf::Vector2f(window.getSize().x*.05, window.getSize().y*.8)));
 	Table counter(*(new sf::Vector2f(190, 15)), sf::Color::White, *(new sf::Vector2f(window.getSize().x*.05, window.getSize().y*.7)));
 	Table background(*(new sf::Vector2f(0, 0)), sf::Color::Red, *(new sf::Vector2f(window.getSize().x*1, window.getSize().y*1)));
-	
+
+	//may decide to make a seperate chair class at some point
 	Table chair1(*(new sf::Vector2f(60, 15)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
 	Table chair2(*(new sf::Vector2f(60, 35)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
 	Table chair3(*(new sf::Vector2f(60, 55)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
@@ -32,6 +35,12 @@ int main(void)
 	Table chair6(*(new sf::Vector2f(60, 120)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
 	Table chair7(*(new sf::Vector2f(60, 143)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
 	Table chair8(*(new sf::Vector2f(60, 165)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
+
+	//don't know if this is how we will be doing the time
+	sf::Time arrival; //until next arrival
+	sf::Time eat; //takes to eat
+	sf::Time cook; //takes to cook
+	sf::Time walkout; //how long Andy is willing to wait
 
 	/*HANDLE hConsole;
 	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
