@@ -154,6 +154,9 @@
   <ItemGroup>
     <ClInclude Include="Table.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="red and white tile.jpg" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
