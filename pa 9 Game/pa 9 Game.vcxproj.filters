@@ -28,7 +28,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="red and white tile.jpg">
+    <Image Include="red_and_white_tile.jpg">
       <Filter>Source Files</Filter>
     </Image>
   </ItemGroup>
