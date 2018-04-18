@@ -19,7 +19,7 @@ influences:
 #include <SFML/Graphics.hpp> 
 #include "Table.h"
 //#include <time.h>
-#include "Background.h"
+#include "Chair.h"
 
 
 
@@ -33,11 +33,11 @@ int main(void)
 
 	//background //table 
 	sf::Texture background, table;
-	sf::Sprite ground, sTable;
-	//Background floor("red_and_white_tile.jpg");
+	sf::Sprite ground, sTable, sChair;
+	Chair chair(15), chair2(58), chair3(101), chair4(144), chair5(187), chair6(230), chair7(273), chair8(310);
 
 	//may decide to make a seperate chair class at some point or image 
-	Table chair1(*(new sf::Vector2f(267, 15)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
+	/*Table chair1(*(new sf::Vector2f(267, 15)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
 	Table chair2(*(new sf::Vector2f(267, 58)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
 	Table chair3(*(new sf::Vector2f(267, 101)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
 	Table chair4(*(new sf::Vector2f(267, 144)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
@@ -45,7 +45,7 @@ int main(void)
 	Table chair6(*(new sf::Vector2f(267, 230)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
 	Table chair7(*(new sf::Vector2f(267, 273)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
 	Table chair8(*(new sf::Vector2f(267, 313)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
-
+*/
 	//don't know if this is how we will be doing the time
 	sf::Time arrival; //until next arrival
 	sf::Time eat; //takes to eat
@@ -71,7 +71,7 @@ int main(void)
 	/*-----------------sets table--------------------------*/
 	if (!table.loadFromFile("dark-oak-table-top.jpg"))
 	{
-		throw std::runtime_error("could not load table");
+		throw std::runtime_error("could not load chair");
 	}
 	sTable.setTexture(table);
 	//the size we want the table
@@ -81,6 +81,21 @@ int main(void)
 	//where we want to table
 	sTable.setPosition(*(new sf::Vector2f(300, 15)));
 	
+	/*-----------------sets chairs--------------------------*/
+	//if (!chair.loadFromFile("round-wood1.jpg"))
+	//{
+	//	throw std::runtime_error("could not load table");
+	//}
+	//
+	//sChair.setTexture(chair);
+	////the size we want the table
+	//sf::Vector2f targetSizeChair(30.0f, 25.0f);
+	////changes the size of the table
+	//sChair.setScale(targetSizeChair.x / sChair.getLocalBounds().width, targetSizeChair.y / sChair.getLocalBounds().height);
+	////where we want to table
+	//sChair.setPosition(*(new sf::Vector2f(267, 15)));
+	//sChair.setPosition(*(new sf::Vector2f(267, 58)));
+	//sChair.setPosition(*(new sf::Vector2f(267, 101)));
 
 
 	while (window.isOpen())
@@ -100,14 +115,14 @@ int main(void)
 		window.draw(sTable);
 		//window.draw(t1);
 		window.draw(counter);
-		window.draw(chair1);
-		window.draw(chair2);
-		window.draw(chair3);
-		window.draw(chair4);
-		window.draw(chair5);
-		window.draw(chair6);
-		window.draw(chair7);
-		window.draw(chair8);
+		window.draw(chair.getSprite());
+		window.draw(chair2.getSprite());
+		window.draw(chair3.getSprite());
+		window.draw(chair4.getSprite());
+		window.draw(chair5.getSprite());
+		window.draw(chair6.getSprite());
+		window.draw(chair7.getSprite());
+		window.draw(chair8.getSprite());
 		window.display();
 	}//while window.isOpen()
 	
