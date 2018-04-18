@@ -18,6 +18,7 @@ influences:
 #include "Table.h"
 //#include <windows.h> //for color
 //#include <time.h>
+#include "Background.h"
 
 
 
@@ -33,6 +34,7 @@ int main(void)
 	//Table background(*(new sf::Vector2f(0, 0)), sf::Color::Red, *(new sf::Vector2f(window.getSize().x*1, window.getSize().y*1)));
 	sf::Texture background;
 	sf::Sprite ground;
+	//Background floor("red_and_white_tile.jpg");
 	//may decide to make a seperate chair class at some point
 	Table chair1(*(new sf::Vector2f(60, 15)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
 	Table chair2(*(new sf::Vector2f(60, 35)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
@@ -62,6 +64,9 @@ int main(void)
 	//shape.setFillColor(sf::Color::Green);
 
 	//does weird shit to the background
+	bool success = false;
+	success = background.loadFromFile("red_and_white_tile.jpg");
+
 	if (!background.loadFromFile("red_and_white_tile.jpg"))
 	{
 		throw std::runtime_error("could not load background");
@@ -72,6 +77,7 @@ int main(void)
 		//cout << "background unable to load" << endl;
 		//return 0;
 	}
+	
 
 	while (window.isOpen())
 	{
