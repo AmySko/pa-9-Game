@@ -156,6 +156,7 @@
     <ClInclude Include="Table.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="dark-oak-table-top.jpg" />
     <Image Include="red_and_white_tile.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

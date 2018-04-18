@@ -34,5 +34,8 @@
     <Image Include="red_and_white_tile.jpg">
       <Filter>Source Files</Filter>
     </Image>
+    <Image Include="dark-oak-table-top.jpg">
+      <Filter>Source Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

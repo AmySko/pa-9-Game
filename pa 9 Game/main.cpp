@@ -28,15 +28,15 @@ int main(void)
 	/**************************************************Initalizing Variables**************************************************************/
 	sf::RenderWindow window(sf::VideoMode(800, 400), "SFML works!"); //This changes the window size that pops up, do we want to chang it?
 	//table and counter
-	Table t1(*(new sf::Vector2f(300, 15)), sf::Color::Black, *(new sf::Vector2f(window.getSize().x*.05, window.getSize().y*.8)));
+	//Table t1(*(new sf::Vector2f(300, 15)), sf::Color::Black, *(new sf::Vector2f(window.getSize().x*.05, window.getSize().y*.8)));
 	Table counter(*(new sf::Vector2f(760, 15)), sf::Color::Black, *(new sf::Vector2f(window.getSize().x*.05, window.getSize().y*.7)));
 
-	//background 
-	sf::Texture background;
-	sf::Sprite ground;
+	//background //table 
+	sf::Texture background, table;
+	sf::Sprite ground, sTable;
 	//Background floor("red_and_white_tile.jpg");
 
-	//may decide to make a seperate chair class at some point
+	//may decide to make a seperate chair class at some point or image 
 	Table chair1(*(new sf::Vector2f(267, 15)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
 	Table chair2(*(new sf::Vector2f(267, 58)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
 	Table chair3(*(new sf::Vector2f(267, 101)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
@@ -56,13 +56,32 @@ int main(void)
 	//shape.setFillColor(sf::Color::Green);
 
 	/**************************************************Coding the screen**************************************************************/
+	
+	//should make a menu
 
-	//sets the background
+
+
+	/*-----------------sets the background----------------*/
 	if (!background.loadFromFile("red_and_white_tile.jpg"))
 	{
 		throw std::runtime_error("could not load background");
 	}
 	ground.setTexture(background);
+
+	/*-----------------sets table--------------------------*/
+	if (!table.loadFromFile("dark-oak-table-top.jpg"))
+	{
+		throw std::runtime_error("could not load table");
+	}
+	sTable.setTexture(table);
+	//the size we want the table
+	sf::Vector2f targetSize(50.0f, 320.0f);
+	//changes the size of the table
+	sTable.setScale(targetSize.x / sTable.getLocalBounds().width, targetSize.y / sTable.getLocalBounds().height);
+	//where we want to table
+	sTable.setPosition(*(new sf::Vector2f(300, 15)));
+	
+
 
 	while (window.isOpen())
 	{
@@ -74,10 +93,12 @@ int main(void)
 				window.close();
 		}
 
+
 		window.clear();
 		//window.draw(shape);
 		window.draw(ground);
-		window.draw(t1);
+		window.draw(sTable);
+		//window.draw(t1);
 		window.draw(counter);
 		window.draw(chair1);
 		window.draw(chair2);
