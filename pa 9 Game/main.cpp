@@ -1,5 +1,6 @@
 /*Amber Skogen
 Tyler Scheffler
+25 April 2018
 
 pa 9 Game
 
@@ -10,13 +11,13 @@ influences:
 	The glory that is stackoverflow
 	The light that guides us home: cplusplus.com
 	The excellence of google images
-	
+	The humble Ryan
+
 */
 
 
 #include <SFML/Graphics.hpp> 
 #include "Table.h"
-//#include <windows.h> //for color
 //#include <time.h>
 #include "Background.h"
 
@@ -24,26 +25,26 @@ influences:
 
 int main(void)
 {
-	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!"); //This changes the window size that pops up, do we want to chang it?
+	/**************************************************Initalizing Variables**************************************************************/
+	sf::RenderWindow window(sf::VideoMode(800, 400), "SFML works!"); //This changes the window size that pops up, do we want to chang it?
+	//table and counter
+	Table t1(*(new sf::Vector2f(300, 15)), sf::Color::Black, *(new sf::Vector2f(window.getSize().x*.05, window.getSize().y*.8)));
+	Table counter(*(new sf::Vector2f(760, 15)), sf::Color::Black, *(new sf::Vector2f(window.getSize().x*.05, window.getSize().y*.7)));
 
-	Table t1(*(new sf::Vector2f(70, 15)), sf::Color::White, *(new sf::Vector2f(window.getSize().x*.05, window.getSize().y*.8)));
-	Table counter(*(new sf::Vector2f(190, 15)), sf::Color::White, *(new sf::Vector2f(window.getSize().x*.05, window.getSize().y*.7)));
-
-
-	//background should probably be changed from a table class
-	//Table background(*(new sf::Vector2f(0, 0)), sf::Color::Red, *(new sf::Vector2f(window.getSize().x*1, window.getSize().y*1)));
+	//background 
 	sf::Texture background;
 	sf::Sprite ground;
 	//Background floor("red_and_white_tile.jpg");
+
 	//may decide to make a seperate chair class at some point
-	Table chair1(*(new sf::Vector2f(60, 15)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
-	Table chair2(*(new sf::Vector2f(60, 35)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
-	Table chair3(*(new sf::Vector2f(60, 55)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
-	Table chair4(*(new sf::Vector2f(60, 75)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
-	Table chair5(*(new sf::Vector2f(60, 100)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
-	Table chair6(*(new sf::Vector2f(60, 120)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
-	Table chair7(*(new sf::Vector2f(60, 143)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
-	Table chair8(*(new sf::Vector2f(60, 165)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
+	Table chair1(*(new sf::Vector2f(267, 15)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
+	Table chair2(*(new sf::Vector2f(267, 58)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
+	Table chair3(*(new sf::Vector2f(267, 101)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
+	Table chair4(*(new sf::Vector2f(267, 144)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
+	Table chair5(*(new sf::Vector2f(267, 187)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
+	Table chair6(*(new sf::Vector2f(267, 230)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
+	Table chair7(*(new sf::Vector2f(267, 273)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
+	Table chair8(*(new sf::Vector2f(267, 313)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
 
 	//don't know if this is how we will be doing the time
 	sf::Time arrival; //until next arrival
@@ -51,33 +52,17 @@ int main(void)
 	sf::Time cook; //takes to cook
 	sf::Time walkout; //how long Andy is willing to wait
 
-	/*This is code I found on cplusplus for setting an image 
-	for a sprite*/
-	/*.
-  sf::Texture imageSource;
-  if(!imageSource.loadFromFile("image.png"))
-      return EXIT_FAILURE;
-  sf::Sprite imageSprite;
-  imageSprite.setTexture(imageSource);*/
-
 	//sf::CircleShape shape(100.f);
 	//shape.setFillColor(sf::Color::Green);
 
-	//does weird shit to the background
-	bool success = false;
-	success = background.loadFromFile("red_and_white_tile.jpg");
+	/**************************************************Coding the screen**************************************************************/
 
+	//sets the background
 	if (!background.loadFromFile("red_and_white_tile.jpg"))
 	{
 		throw std::runtime_error("could not load background");
 	}
 	ground.setTexture(background);
-	//if(!background.loadFromFile("red_and_white_tile.jpg"))
-	{
-		//cout << "background unable to load" << endl;
-		//return 0;
-	}
-	
 
 	while (window.isOpen())
 	{
@@ -103,7 +88,7 @@ int main(void)
 		window.draw(chair7);
 		window.draw(chair8);
 		window.display();
-	}
+	}//while window.isOpen()
 	
 
 
