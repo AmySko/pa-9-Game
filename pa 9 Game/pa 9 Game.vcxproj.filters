@@ -21,6 +21,9 @@
     <ClCompile Include="Table.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Multiple_images.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Table.h">
@@ -29,12 +32,27 @@
     <ClInclude Include="Chair.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="food.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Multiple_images.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="red_and_white_tile.jpg">
       <Filter>Source Files</Filter>
     </Image>
     <Image Include="dark-oak-table-top.jpg">
+      <Filter>Source Files</Filter>
+    </Image>
+    <Image Include="taco_butt.png">
+      <Filter>Source Files</Filter>
+    </Image>
+    <Image Include="chili.png">
+      <Filter>Source Files</Filter>
+    </Image>
+    <Image Include="Cheesecake.png">
       <Filter>Source Files</Filter>
     </Image>
   </ItemGroup>
