@@ -149,12 +149,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Multiple_images.cpp" />
     <ClCompile Include="Surface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chair.h" />
     <ClInclude Include="food.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Multiple_images.h" />
     <ClInclude Include="Surface.h" />
   </ItemGroup>

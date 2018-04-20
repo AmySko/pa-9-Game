@@ -21,15 +21,13 @@ influences:
 //#include <time.h>
 #include "Chair.h"
 #include "food.h"
-
+#include "Menu.h"
 
 
 int main(void)
 {
 	/**************************************************Initalizing Variables**************************************************************/
-	//changes the window size that pops up
-	sf::RenderWindow window(sf::VideoMode(800, 400), "SFML works!"); 
-
+	
 	//names of files for the table and the counter
 	string lTable = "dark-oak-table-top.jpg", lCounter = "marble2.jpg";
 
@@ -63,49 +61,61 @@ int main(void)
 	/**************************************************Coding the screen**************************************************************/
 	
 	//should make a menu
+	Menu menu;
+	int option;
 
+	do {
+		do {
+			option = menu.runMenu();
+			if (option == 0)
+			{
+				return 0;
+			}
+		} while (option == 1);
 
+		//changes the window size that pops up
+		sf::RenderWindow window(sf::VideoMode(800, 400), "SFML works!");
 
-	/*-----------------sets the background of restraunt ----------------*/
-	if (!background.loadFromFile("red_and_white_tile.jpg"))
-	{
-		throw std::runtime_error("could not load background");
-	}
-	ground.setTexture(background);
-
-
-	while (window.isOpen())
-	{
-		sf::Event event;
-		while (window.pollEvent(event))
+		/*-----------------sets the background of restraunt ----------------*/
+		if (!background.loadFromFile("red_and_white_tile.jpg"))
 		{
-			
-			if (event.type == sf::Event::Closed)
-				window.close();
+			throw std::runtime_error("could not load background");
 		}
+		ground.setTexture(background);
 
 
-		window.clear();
-		window.draw(ground);
-		window.draw(table.getISprite());
-		window.draw(counter.getISprite());
-		window.draw(chair.getISprite());
-		window.draw(chair2.getISprite());
-		window.draw(chair3.getISprite());
-		window.draw(chair4.getISprite());
-		window.draw(chair5.getISprite());
-		window.draw(chair6.getISprite());
-		window.draw(chair7.getISprite());
-		window.draw(chair8.getISprite());
+		while (window.isOpen())
+		{
+			sf::Event event;
+			while (window.pollEvent(event))
+			{
 
-		/*window.draw(cheesecake1.getISprite());
-		window.draw(taco1.getISprite());
-		window.draw(chili1.getISprite());*/
+				if (event.type == sf::Event::Closed)
+					window.close();
+			}
 
-		window.display();
-	}//while window.isOpen()
-	
 
+			window.clear();
+			window.draw(ground);
+			window.draw(table.getISprite());
+			window.draw(counter.getISprite());
+			window.draw(chair.getISprite());
+			window.draw(chair2.getISprite());
+			window.draw(chair3.getISprite());
+			window.draw(chair4.getISprite());
+			window.draw(chair5.getISprite());
+			window.draw(chair6.getISprite());
+			window.draw(chair7.getISprite());
+			window.draw(chair8.getISprite());
+
+			/*window.draw(cheesecake1.getISprite());
+			window.draw(taco1.getISprite());
+			window.draw(chili1.getISprite());*/
+
+			window.display();
+		}//while window.isOpen()
+
+	} while (option != 0);
 
 	return 0;
 }
