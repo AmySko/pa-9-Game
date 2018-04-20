@@ -28,7 +28,6 @@ public:
 
 	void setpos(int Xaxis, int Yaxis);
 
-
 	Sprite getSprite();
 	int getXaxis();
 	int getYaxis();
