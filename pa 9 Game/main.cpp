@@ -1,8 +1,8 @@
-/*Amber Skogen
-Tyler Scheffler
-25 April 2018
-
-pa 9 Game
+/*****************************************************************
+	Amber Skogen
+	Tyler Scheffler
+	25 April 2018
+	pa 9 Game
 
 influences:
 	The beauty that is the internet
@@ -13,38 +13,37 @@ influences:
 	The excellence of google images
 	The humble Ryan
 
-*/
+*****************************************************************/
 
-
+#include "Multiple_images.h"
 #include <SFML/Graphics.hpp> 
 #include "Table.h"
 //#include <time.h>
-#include "Background.h"
-
+#include "Chair.h"
+#include "food.h"
 
 
 int main(void)
 {
 	/**************************************************Initalizing Variables**************************************************************/
-	sf::RenderWindow window(sf::VideoMode(800, 400), "SFML works!"); //This changes the window size that pops up, do we want to chang it?
-	//table and counter
+	//changes the window size that pops up
+	sf::RenderWindow window(sf::VideoMode(800, 400), "SFML works!"); 
+	//table
 	//Table t1(*(new sf::Vector2f(300, 15)), sf::Color::Black, *(new sf::Vector2f(window.getSize().x*.05, window.getSize().y*.8)));
-	Table counter(*(new sf::Vector2f(760, 15)), sf::Color::Black, *(new sf::Vector2f(window.getSize().x*.05, window.getSize().y*.7)));
+	
+	//background //table //counter
+	sf::Texture background, table, counter;
+	sf::Sprite ground, sTable, sCounter;
 
-	//background //table 
-	sf::Texture background, table;
-	sf::Sprite ground, sTable;
-	//Background floor("red_and_white_tile.jpg");
+	//calls Chair constructor, goes into Images class, sets the positions for the chair
+	Chair chair(15), chair2(58), chair3(101), chair4(144), chair5(187), chair6(230), chair7(273), chair8(310);
 
-	//may decide to make a seperate chair class at some point or image 
-	Table chair1(*(new sf::Vector2f(267, 15)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
-	Table chair2(*(new sf::Vector2f(267, 58)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
-	Table chair3(*(new sf::Vector2f(267, 101)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
-	Table chair4(*(new sf::Vector2f(267, 144)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
-	Table chair5(*(new sf::Vector2f(267, 187)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
-	Table chair6(*(new sf::Vector2f(267, 230)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
-	Table chair7(*(new sf::Vector2f(267, 273)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
-	Table chair8(*(new sf::Vector2f(267, 313)), sf::Color::Yellow, *(new sf::Vector2f(window.getSize().x*.04, window.getSize().y*.05)));
+	//set food functions //-----------------------consider vectors for multiple food items and chairs--------------------//
+	vector<Food> taco;
+	//taco.push_back(15, "taco_butt.png");
+	Food taco1(15, "taco_butt.png");
+	Food cheesecake1(15, "Cheesecake.png");
+	Food chili1(15, "chili.png");
 
 	//don't know if this is how we will be doing the time
 	sf::Time arrival; //until next arrival
@@ -52,8 +51,6 @@ int main(void)
 	sf::Time cook; //takes to cook
 	sf::Time walkout; //how long Andy is willing to wait
 
-	//sf::CircleShape shape(100.f);
-	//shape.setFillColor(sf::Color::Green);
 
 	/**************************************************Coding the screen**************************************************************/
 	
@@ -80,7 +77,20 @@ int main(void)
 	sTable.setScale(targetSize.x / sTable.getLocalBounds().width, targetSize.y / sTable.getLocalBounds().height);
 	//where we want to table
 	sTable.setPosition(*(new sf::Vector2f(300, 15)));
-	
+
+	/*-----------------sets counter--------------------------*/
+	if (!counter.loadFromFile("marble2.jpg"))
+	{
+		throw std::runtime_error("could not load counter");
+	}
+	sCounter.setTexture(counter);
+	//the size we want the counter
+	sf::Vector2f targetSizeCounter(50.0f, 320.0f);
+	//changes the size of the counter
+	sCounter.setScale(targetSizeCounter.x / sCounter.getLocalBounds().width, targetSizeCounter.y / sCounter.getLocalBounds().height);
+	//where we want to counter
+	sCounter.setPosition(*(new sf::Vector2f(760, 15)));
+
 
 
 	while (window.isOpen())
@@ -99,15 +109,20 @@ int main(void)
 		window.draw(ground);
 		window.draw(sTable);
 		//window.draw(t1);
-		window.draw(counter);
-		window.draw(chair1);
-		window.draw(chair2);
-		window.draw(chair3);
-		window.draw(chair4);
-		window.draw(chair5);
-		window.draw(chair6);
-		window.draw(chair7);
-		window.draw(chair8);
+		window.draw(sCounter);
+		window.draw(chair.getISprite());
+		window.draw(chair2.getISprite());
+		window.draw(chair3.getISprite());
+		window.draw(chair4.getISprite());
+		window.draw(chair5.getISprite());
+		window.draw(chair6.getISprite());
+		window.draw(chair7.getISprite());
+		window.draw(chair8.getISprite());
+
+	/*	window.draw(cheesecake1.getSprite());
+		window.draw(taco1.getSprite());
+		window.draw(chili1.getSprite());*/
+
 		window.display();
 	}//while window.isOpen()
 	

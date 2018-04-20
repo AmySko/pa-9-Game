@@ -149,15 +149,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Multiple_images.cpp" />
     <ClCompile Include="Table.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Background.h" />
+    <ClInclude Include="Chair.h" />
+    <ClInclude Include="food.h" />
+    <ClInclude Include="Multiple_images.h" />
     <ClInclude Include="Table.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Cheesecake.png" />
+    <Image Include="chili.png" />
     <Image Include="dark-oak-table-top.jpg" />
     <Image Include="red_and_white_tile.jpg" />
+    <Image Include="taco_butt.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
