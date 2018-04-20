@@ -13,6 +13,9 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 #include <vector>
+#include <string>
+#include "Multiple_images.h"
+
 
 using std::vector;
 using std::string;
@@ -20,41 +23,42 @@ using std::string;
 class Food
 {
 public:
-	Food(int Yaxis, string name)
+	Food(int Yaxis, int option)
 	{
-		if (!food.loadFromFile(name))
+		Images foodPic;
+		pFood = nullptr;
+
+		pFood = new Images(foodPic);
+		if (pFood != nullptr)
 		{
-			throw std::runtime_error("could not load food");
+			switch (option)
+			{
+			case 1: pFood->setName("taco_butt.png");
+				break;
+			case 2: pFood->setName("Cheesecake.png");
+				break;
+			case 3: pFood->setName("chili.png");
+				break;
+			}
+			//---------------this Xaxis may need to change since the food will move with the server ----------------------//
+			pFood->setXaxis(760);
+			pFood->setYaxis(Yaxis);
+			pFood->setTargetX(30.0f);
+			pFood->setTargetY(25.0f);
+
+			pFood->display();
 		}
-
-		sFood.setTexture(food);
-		//the size we want the table
-		sf::Vector2f targetSizeFood(30.0f, 25.0f);
-		//changes the size of the table
-		sFood.setScale(targetSizeFood.x / sFood.getLocalBounds().width, targetSizeFood.y / sFood.getLocalBounds().height);
-		//start position will be on the counter
-		setpos(Yaxis);
 	}
-	
-	void setpos(int Yaxis)
+
+	Sprite getISprite()
 	{
-		//where we want to table
-		sFood.setPosition(*(new sf::Vector2f(760, Yaxis)));
-
+		Sprite Spic;
+		Spic = pFood->getSprite();
+		return Spic;
 	}
-	sf::Sprite getSprite()
-	{
-		return this->sFood;
-	}
-
-	//need a move function
-
-	//end position
 
 private:
-	sf::Texture food;
-	sf::Sprite sFood;
-
+	Images *pFood;
 };
 
 

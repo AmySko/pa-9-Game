@@ -150,13 +150,13 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Multiple_images.cpp" />
-    <ClCompile Include="Table.cpp" />
+    <ClCompile Include="Surface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chair.h" />
     <ClInclude Include="food.h" />
     <ClInclude Include="Multiple_images.h" />
-    <ClInclude Include="Table.h" />
+    <ClInclude Include="Surface.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Cheesecake.png" />

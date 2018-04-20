@@ -24,7 +24,6 @@ Images::Images(Images &newdata)
 	Yaxis = newdata.Yaxis;
 	targetX = newdata.targetX;
 	targetY = newdata.targetY;
-	
 }
 
 bool Images::display()
@@ -57,7 +56,6 @@ Images::~Images()
 void Images::setpos(int Xaxis, int Yaxis)
 {
 	sPic.setPosition(*(new sf::Vector2f(Xaxis, Yaxis)));
-
 }
 
 //get the sprite
