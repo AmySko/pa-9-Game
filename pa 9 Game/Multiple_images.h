@@ -28,12 +28,16 @@ public:
 
 	void setpos(int Xaxis, int Yaxis);
 
-	Sprite getSprite();
+	/*---------------getters-------------------------------*/
+
+	virtual Sprite getSprite();
 	int getXaxis();
 	int getYaxis();
 	string getName();
 	double getTargetX();
 	double getTargetY();
+
+	/*---------------setters-------------------------------*/
 
 	void setSprite(Sprite newsPic);
 	void setXaxis(int newXaxis);

@@ -50,7 +50,7 @@ public:
 		}
 	}
 
-	Sprite getISprite()
+	Sprite getSprite()
 	{
 		Sprite Spic;
 		Spic = pFood->getSprite();

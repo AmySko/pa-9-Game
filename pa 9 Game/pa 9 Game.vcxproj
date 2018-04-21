@@ -154,22 +154,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Andy.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Multiple_images.cpp" />
-    <ClCompile Include="Surface.cpp" />
+    <ClCompile Include="Furniture.cpp" />
+    <ClCompile Include="Server.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Andy.h" />
     <ClInclude Include="Chair.h" />
+    <ClInclude Include="Counter.h" />
     <ClInclude Include="food.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Multiple_images.h" />
-    <ClInclude Include="Surface.h" />
+    <ClInclude Include="Person.h" />
+    <ClInclude Include="Furniture.h" />
+    <ClInclude Include="Server.h" />
+    <ClInclude Include="Table.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Cheesecake.png" />
     <Image Include="chili.png" />
     <Image Include="dark-oak-table-top.jpg" />
+    <Image Include="door_closed.jpg" />
+    <Image Include="Dwight.jpg" />
+    <Image Include="o%27fallon.png" />
     <Image Include="red_and_white_tile.jpg" />
     <Image Include="taco_butt.png" />
   </ItemGroup>
