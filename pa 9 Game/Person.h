@@ -6,29 +6,23 @@
 *
 *
 **************************************************************/
-#pragma once
-
+#pragma once 
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <string>
+#include "Multiple_images.h"
 
-using std::cout;
-using std::cin;
-using std::endl;
-
-class Menu
+class Person 
 {
 public:
-	Menu();
-	~Menu();
+	Person()
+	{
+		
+	}
 
-	/*---------------Other functions-------------------------------*/
-	int runMenu();
 	
 private:
-	int getOption();
-	void printMenu();
-	void Instructions();
-
+//	Images *pPerson;
 };
+

@@ -12,6 +12,7 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 #include "Multiple_images.h"
+#include "Furniture.h"
 
 class Chair : public Images
 {
@@ -25,7 +26,7 @@ public:
 		if (pChair != nullptr)
 		{
 			pChair->setName("round-wood1.jpg");
-			pChair->setXaxis(276);
+			pChair->setXaxis(270);
 			pChair->setYaxis(Yaxis);
 			pChair->setTargetX(30.0f);
 			pChair->setTargetY(25.0f);
@@ -34,14 +35,17 @@ public:
 		}
 	}
 
-	Sprite getISprite()
+	/*---------------getters-------------------------------*/
+
+	Sprite getSprite()
 	{
-		Sprite Spic;
+	
 		Spic = pChair->getSprite();
-		return Spic;
+		return this->Spic;
 	}
 
 private:
 	Images *pChair;
+	Sprite Spic;
 };
 

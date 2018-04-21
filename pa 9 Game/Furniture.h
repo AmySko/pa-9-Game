@@ -8,27 +8,31 @@
 **************************************************************/
 #pragma once
 
-
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <string>
+#include "Multiple_images.h"
 
+
+using std::endl;
 using std::cout;
 using std::cin;
-using std::endl;
 
-class Menu
+
+
+class Furniture 
 {
 public:
-	Menu();
-	~Menu();
+	Furniture()
+	{
+		//sFurniture = nullptr;
+	}
 
-	/*---------------Other functions-------------------------------*/
-	int runMenu();
 	
-private:
-	int getOption();
-	void printMenu();
-	void Instructions();
 
+
+private:
+	
 };
+
+
