@@ -35,11 +35,12 @@ int Menu::runMenu()
 //print statements for the menu
 void Menu::printMenu()
 {
-	cout << "\t\t***      ***  ****** ***      **  **  ** " << endl;
-	cout << "\t\t** *    * **  **     ****    **   **  ** " << endl;
-	cout << "\t\t**  *  *  **  ****** ** **  **    **  ** " << endl;
-	cout << "\t\t**   **   **  **     **  ****     **  ** " << endl;
-	cout << "\t\t**   **   **  ****** **   **      ****** " << endl;
+	cout << "\n\n\n" << endl;
+	cout << "\t\t***      ***  ****** ***    **    **   ** " << endl;
+	cout << "\t\t** *    * **  **     ****   **    **   ** " << endl;
+	cout << "\t\t**  *  *  **  ****** ** **  **    **   ** " << endl;
+	cout << "\t\t**   **   **  **     **  ** **    **   ** " << endl;
+	cout << "\t\t**   **   **  ****** **   ****    ******* " << endl;
 
 	cout << "\n\n\n " << endl;
 	cout << "\t(1) Instructions" << endl;
