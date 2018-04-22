@@ -30,6 +30,7 @@ influences:
 #include "Andy.h"
 #include "Server.h"
 
+using namespace sf;
 
 int main(void)
 {
@@ -116,16 +117,30 @@ int main(void)
 
 		/*-----------------------------Window------------------------------------*/
 	
+		/*
 
+
+		*/
 		while (window.isOpen())
 		{
 			sf::Event event;
 
 			while (window.pollEvent(event))
 			{
-				if (event.type == sf::Event::Closed)
-					window.close();
+				switch(event.type){
 
+				case Event::Closed:
+					window.close();
+					break;
+				case Event::KeyPressed:
+					cout << event.key.code << endl;
+					server.keyListener(event.key.code);
+					server.updatePosition();
+					break;
+
+				default:
+					break;
+				}
 			}
 
 			
@@ -133,7 +148,7 @@ int main(void)
 			window.clear();
 
 			window.draw(ground);
-		//	window.draw(wall.getSprite());
+
 			window.draw(counter.getSprite());
 
 			window.draw(chair.getSprite());
@@ -146,17 +161,10 @@ int main(void)
 			window.draw(chair8.getSprite());
 
 			window.draw(table.getSprite());
-
-			//window.draw(server.getSprite());
-			//window.draw(andy.getSprite());
-
-
-			/*window.draw(cheesecake1.getISprite());
-			window.draw(taco1.getISprite());
-			window.draw(chili1.getISprite());*/
+			window.draw(server.getSprite());
 
 			window.display();
-		}//while window.isOpen()
+		}
 
 	} while (option != 0);
 

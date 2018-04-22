@@ -59,6 +59,7 @@ public:
 
 private:
 	Images *pFood;
+	bool isPickedUp;
 };
 
 
