@@ -23,9 +23,6 @@ public:
 
 	}
 
-	bool canMove(int x, int y) {
-		return true;
-	}
 
 	//WASD
 	void keyListener(int buttonPress) {
@@ -49,17 +46,25 @@ public:
 
 	void movement(int direction) {
 		switch (direction) {
-		case 18:
-			this->setYpos(getYPos() + 5);
+		case 22:
+			if (getYPos() - 5 > 0) {
+				this->setYpos(getYPos() - 5);
+			}
 			break;
 		case 0:
-			this->setXpos(getXPos() - 5);
+			if (getXPos() - 5 > 0) {
+				this->setXpos(getXPos() - 5);
+			}
 			break;
-		case 22:
-			this->setYpos(getYPos() - 5);
+		case 18:
+			if (getYPos() + 5 < 350) {
+				this->setYpos(getYPos() + 5);
+			}
 			break;
 		case 3:
-			this->setXpos(getXPos() + 5);
+			if (getXPos() + 5 < 750) {
+				this->setXpos(getXPos() + 5);
+			}
 			break;
 		default:
 			break;
@@ -87,7 +92,6 @@ void setYpos(int newYPos) {
 
 private:
 
-	Images * pPerson;
 	int xPos;
 	int yPos;
 };
