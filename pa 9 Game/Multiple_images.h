@@ -37,6 +37,8 @@ public:
 	double getTargetX();
 	double getTargetY();
 
+	
+
 	/*---------------setters-------------------------------*/
 
 	void setSprite(Sprite newsPic);

@@ -25,11 +25,16 @@ class Furniture
 public:
 	Furniture()
 	{
-		//sFurniture = nullptr;
+		
 	}
 
-	
+	/*---------------getters-------------------------------*/
 
+	/*---------------setters-------------------------------*/
+
+	/*---------------Other Functions-------------------------------*/
+	//
+	//virtual bool isFurniture(int Xaxis[], int Yaxis[]) = 0; 
 
 private:
 	

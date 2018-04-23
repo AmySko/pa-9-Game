@@ -19,7 +19,7 @@ using sf::Texture;
 using sf::Sprite;
 using std::string;
 
-class Table : public Images
+class Table : public Images, public Furniture
 {
 public:
 	Table()
