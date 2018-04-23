@@ -19,7 +19,7 @@ using sf::Texture;
 using sf::Sprite;
 using std::string;
 
-class Counter : public Images
+class Counter : public Images, public Furniture
 {
 public:
 	Counter()
@@ -49,8 +49,15 @@ public:
 		return Spic;
 	}
 
+	/*---------------Other Functions-------------------------------*/
+	//
+	//bool isFurniture(int Xaxis[], int Yaxis[]);
+
 
 private:
 	Images *pCounter;
 
+
+	//int Xaxis[45];
+	//int Yaxis[320];
 };

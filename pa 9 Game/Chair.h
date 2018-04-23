@@ -14,7 +14,7 @@
 #include "Multiple_images.h"
 #include "Furniture.h"
 
-class Chair : public Images
+class Chair : public Images, public Furniture
 {
 public:
 	Chair(int Yaxis)

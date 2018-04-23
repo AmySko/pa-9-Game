@@ -54,9 +54,10 @@ int main(void)
 
 	//-----------------------consider vectors for multiple food items and chairs--------------------//
 	//set food functions 
-	Food taco1(15, 1);
-	Food cheesecake1(35, 2);
-	Food chili1(55, 3);
+	Food taco1(760, 55, 1);
+	Food cheesecake1(760, 144, 2);
+	Food chili1(760, 230, 3);
+
 
 	vector<Food> Plates;
 	Plates.push_back(taco1);
@@ -151,9 +152,9 @@ int main(void)
 			//window.draw(andy.getSprite());
 
 
-			/*window.draw(cheesecake1.getISprite());
-			window.draw(taco1.getISprite());
-			window.draw(chili1.getISprite());*/
+			window.draw(cheesecake1.getSprite());
+			window.draw(taco1.getSprite());
+			window.draw(chili1.getSprite());
 
 			window.display();
 		}//while window.isOpen()

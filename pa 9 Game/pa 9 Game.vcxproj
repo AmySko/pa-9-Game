@@ -149,6 +149,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Andy.cpp" />
+    <ClCompile Include="Counter.cpp" />
+    <ClCompile Include="food.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Multiple_images.cpp" />

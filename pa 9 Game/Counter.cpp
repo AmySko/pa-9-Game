@@ -6,10 +6,11 @@
 *
 *
 **************************************************************/
-#include "Furniture.h"
+#include "Counter.h"
+
+
 //
-//bool Furniture::isFurniture(int Xaxis[], int Yaxis[])
+//bool Counter::isFurniture(int Xaxis[], int Yaxis[])
 //{
-//
+//	
 //}
-//
