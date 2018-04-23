@@ -41,20 +41,37 @@ Sprite Food::operator= (Sprite rhs)
 	//rhs.getPosition() // gets the corner put it in
 	return rhs;
 }
+/*
+precondition: F is true
+//if the food is at the carrying position, this will be called first when F key is pressed
 
-bool Food::carrytoDrop()
+*/
+bool Food::carrytoDrop(Sprite &sGrab, Sprite waiter)
 {
-	//if the food is at the carrying position, this will be called first when F key is pressed
+	bool carrying = false;
+	sf::FloatRect boundsWaiter;
+	sf::FloatRect boundsFood;
+
+	boundsWaiter = waiter.getGlobalBounds();
+	boundsFood = sGrab.getGlobalBounds();
+
+	//boundsWaiter.left - 30, boundsWaiter.top
+	if ((boundsFood.left == (boundsWaiter.left - 30)) && (boundsFood.top == boundsWaiter.top))
+	{
+		carrying = true;
+	}
+	return carrying;
 }
 
-bool Food::grabFood(Sprite sPic, Sprite waiter)
+/*pass in a dummy sprite for what you are carrying and the waiter/server's sprite
+precondition: F is true and carrytoDrop is false*/
+bool Food::grabFood(Sprite &sGrab, Sprite waiter)
 {
-	sf::FloatRect boundsFood;
 	sf::FloatRect boundsWaiter;
 	bool grabbed = false;
+	int option = 0;
 
 	// gives bound(0,0,0,0) //left, top, width, height
-	boundsFood = sPic.getGlobalBounds();
 	boundsWaiter = waiter.getGlobalBounds();
 
 	/*Food taco1(760, 55, 1);
@@ -62,26 +79,51 @@ bool Food::grabFood(Sprite sPic, Sprite waiter)
 	Food chili1(760, 230, 3);*/
 
 	//if the waiter is within a certain distance of the food
-		if ((boundsWaiter.left > (boundsFood.left - 10)) && (boundsWaiter.top > (boundsFood.top - 10))) 
+		if ((boundsWaiter.left >= (750)) && (boundsWaiter.top >= (45))) //taco
 		{
 			grabbed = true;
-
-			//move, set pos
+			option = 1;
 		}
-		//setpos(bw - x, bw - y)
-	
-	//if F = true
-	//moveFood(left, top, sPic);
+		else if ((boundsWaiter.left >= (750)) && (boundsWaiter.top >= (134))) //cheesecake
+		{
+			grabbed = true;
+			option = 2;
+		}
+		else if ((boundsWaiter.left >= (750)) && (boundsWaiter.top >= (220))) //chili
+		{
+			grabbed = true;
+			option = 3;
+		}
+		//if the object was grabbed clone it and position it next to the server
+		if (grabbed)
+		{
+			Food newPlate((boundsWaiter.left - 30), boundsWaiter.top, option);
+			sGrab = newPlate.getSprite();
+		}
+		return grabbed;
 }
 
-void Food::moveFood(double stepX, double stepY, Sprite sPic)
+/*
+precondition: F is true and grabbed is true
+A or D, Pass in +5 or -5
+*/
+void Food::moveFoodX(Sprite sGrab, double moveX)
 {
+	
 	//while click is +x and -y and waiter is within -x and -y
-	sPic.move(stepX, stepY); //need to be floating points
+	sGrab.move(moveX, 0.0f); //need to be floating points
 	/*move equivalent too: sf::Vector2f pos = object.getPosition();
 	object.setPosition(pos.x + offsetX, pos.y + offsetY);*/
 
 	//F is case 5
+}
+/*
+precondition: F is true and grabbed is true
+W or S, Pass in +5 or -5
+*/
+void Food::moveFoodY(Sprite sGrab, double moveY)
+{
+	sGrab.move(0.0f, moveY); //need to be floating points
 }
 
 /*---------------Private Functions-------------------------------*/

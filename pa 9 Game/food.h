@@ -76,11 +76,11 @@ public:
 	/*---------------Other Functions-------------------------------*/
 	Sprite operator= (Sprite rhs);
 
-	bool carrytoDrop();
-	bool grabFood(Sprite sPic, Sprite waiter);
+	bool carrytoDrop(Sprite &sGrab, Sprite waiter);
+	bool grabFood(Sprite &sGrab, Sprite waiter);
 
-	void moveFood(double stepX, double stepY, Sprite sPic);
-
+	void moveFoodX(Sprite sGrab, double moveX);
+	void moveFoodY(Sprite sGrab, double moveY);
 
 private:
 	bool eaten(vector<int> Plates);
