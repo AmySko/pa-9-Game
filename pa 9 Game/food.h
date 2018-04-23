@@ -90,7 +90,11 @@ private:
 	int count;
 
 	Images *pFood;
+
 	Sprite Spic;
+
+	bool isPickedUp;
+
 };
 
 

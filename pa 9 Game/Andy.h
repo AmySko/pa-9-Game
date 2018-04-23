@@ -14,7 +14,7 @@
 #include "Multiple_images.h"
 #include "Person.h"
 
-class Andy : public Images
+class Andy : public Images, public Person
 {
 public:
 	Andy()
