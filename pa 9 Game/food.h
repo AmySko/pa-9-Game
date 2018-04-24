@@ -73,7 +73,7 @@ public:
 	void setFoodImage(Images &foodI);
 
 	/*---------------Other Functions-------------------------------*/
-	Sprite operator= (Sprite rhs);
+	Images & operator= (Images &rhs);
 
 	bool carrytoDrop(Sprite &sGrab, Sprite waiter);
 	bool grabFood(Sprite &sGrab, Sprite waiter);

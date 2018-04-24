@@ -35,12 +35,16 @@ void Food::setFoodImage(Images &foodI)
 {
 	//maybe put this in an overloaded operator func
 	this->setName(foodI.getName());
+	this->setXaxis(foodI.getXaxis());
+	this->setYaxis(foodI.getYaxis());
+	this->setTargetX(30.0f);
+	this->setTargetY(25.0f);
 }
 
 /*---------------Other Functions-------------------------------*/
-Sprite Food::operator= (Sprite rhs)
+Images & Food::operator= (Images &rhs)
 {
-	rhs = getSprite();
+	//this->setName(rhs.getName())
 	
 	
 	//rhs.getPosition() // gets the corner put it in
