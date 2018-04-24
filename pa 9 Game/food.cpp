@@ -31,6 +31,11 @@ void Food::setSprite(Sprite newsPic)
 {
 	this->Spic = newsPic;
 }
+void Food::setFoodImage(Images &foodI)
+{
+	//maybe put this in an overloaded operator func
+	this->setName(foodI.getName());
+}
 
 /*---------------Other Functions-------------------------------*/
 Sprite Food::operator= (Sprite rhs)
@@ -64,6 +69,7 @@ bool Food::carrytoDrop(Sprite &sGrab, Sprite waiter)
 }
 
 /*pass in a dummy sprite for what you are carrying and the waiter/server's sprite
+The dummy sprite becomes a new plate/ the plate you are carrying
 precondition: F is true and carrytoDrop is false*/
 bool Food::grabFood(Sprite &sGrab, Sprite waiter)
 {
@@ -97,8 +103,8 @@ bool Food::grabFood(Sprite &sGrab, Sprite waiter)
 		//if the object was grabbed clone it and position it next to the server
 		if (grabbed)
 		{
-			Food newPlate((boundsWaiter.left - 30), boundsWaiter.top, option);
-			sGrab = newPlate.getSprite();
+			//Food newPlate((boundsWaiter.left - 30), boundsWaiter.top, option);
+			//sGrab = newPlate.getSprite();
 		}
 		return grabbed;
 }

@@ -14,12 +14,12 @@
 #include "Multiple_images.h"
 #include "Person.h"
 
-class Server : public Images, public Person
+class Server : public Person
 {
 public:
-	Server()
+	Server(Images &temp) : Person(temp)
 	{
-		pServer = nullptr;
+		/*pServer = nullptr;
 		setXpos(25);
 		setYpos(25);
 
@@ -36,7 +36,7 @@ public:
 			pServer->setTargetY(35.0f);
 
 			pServer->display();
-		}
+		}*/
 	}
 
 
@@ -53,5 +53,6 @@ public:
 
 private:
 	Images *pServer;
+
 };
 

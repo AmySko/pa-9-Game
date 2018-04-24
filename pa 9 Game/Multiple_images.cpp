@@ -8,13 +8,13 @@
 **************************************************************/
 #include "Multiple_images.h"
 
-Images::Images()
+Images::Images(string newname, int newXaxis, int newYaxis, double newtargetX, double newtargetY)
 {
-	this->Xaxis = 0;
-	this->Yaxis = 0;
-	this->name = "";
-	this->targetX = 0.0;
-	this->targetY = 0.0;
+	this->Xaxis = newXaxis;
+	this->Yaxis = newYaxis;
+	this->name = newname;
+	this->targetX = newtargetX;
+	this->targetY = newtargetY;
 }
 
 Images::Images(Images &newdata)
@@ -110,4 +110,9 @@ void Images::setTargetX(double newtargetX)
 void Images::setTargetY(double newtargetY)
 {
 	this->targetY = newtargetY;
+}
+
+void Images::setFoodImage(Images &foodI)
+{
+
 }

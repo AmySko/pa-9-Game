@@ -22,44 +22,43 @@ using std::vector;
 using std::string;
 using std::cout;
 
-class Food 
+class Food : public Images
 {
 public:
-	Food()
+	Food(Images &temp) : Images(temp) 
 	{
-		count = 0; 
-		pFood = nullptr;
+		temp.display();
 	}
 
-	Food(int Xaxis, int Yaxis, int option)
-	{
-		Images foodPic;
-		pFood = nullptr;
+	//Food(int Xaxis, int Yaxis, int option)
+	//{
+	//	Images foodPic;
+	//	pFood = nullptr;
 
-		pFood = new Images(foodPic);
-		if (pFood != nullptr)
-		{
-			switch (option)
-			{
-			case 1: pFood->setName("taco_butt.png");
-				Plates.push_back(count += 1);
-				break;
-			case 2: pFood->setName("Cheesecake.png");
-				Plates.push_back(count += 1);
-				break;
-			case 3: pFood->setName("chili.png");
-				Plates.push_back(count += 1);
-				break;
-			}
-			//---------------this Xaxis may need to change since the food will move with the server ----------------------//
-			pFood->setXaxis(Xaxis);
-			pFood->setYaxis(Yaxis);
-			pFood->setTargetX(30.0f);
-			pFood->setTargetY(25.0f);
+	//	pFood = new Images(foodPic);
+	//	if (pFood != nullptr)
+	//	{
+	//		switch (option)
+	//		{
+	//		case 1: pFood->setName("taco_butt.png");
+	//			Plates.push_back(count += 1);
+	//			break;
+	//		case 2: pFood->setName("Cheesecake.png");
+	//			Plates.push_back(count += 1);
+	//			break;
+	//		case 3: pFood->setName("chili.png");
+	//			Plates.push_back(count += 1);
+	//			break;
+	//		}
+	//		//---------------this Xaxis may need to change since the food will move with the server ----------------------//
+	//		pFood->setXaxis(Xaxis);
+	//		pFood->setYaxis(Yaxis);
+	//		pFood->setTargetX(30.0f);
+	//		pFood->setTargetY(25.0f);
 
-			pFood->display();
-		}
-	}
+	//		pFood->display();
+	//	}
+	//}
 
 	~Food();
 
@@ -71,7 +70,7 @@ public:
 	/*---------------setters-------------------------------*/
 
 	void setSprite(Sprite newsPic);
-
+	void setFoodImage(Images &foodI);
 
 	/*---------------Other Functions-------------------------------*/
 	Sprite operator= (Sprite rhs);

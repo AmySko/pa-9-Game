@@ -19,12 +19,12 @@ using sf::Texture;
 using sf::Sprite;
 using std::string;
 
-class Table : public Images, public Furniture
+class Table : public Furniture
 {
 public:
-	Table()
+	Table(Images &temp) : Furniture(temp)
 	{
-		Images flat;
+		/*Images flat;
 		pTable = nullptr;
 
 		pTable = new Images(flat);
@@ -37,7 +37,7 @@ public:
 			pTable->setTargetY(320.0f);
 
 			pTable->display();
-		}
+		}*/
 	}
 
 	/*---------------getters-------------------------------*/
