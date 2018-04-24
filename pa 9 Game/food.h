@@ -28,6 +28,7 @@ public:
 	Food(Images &temp) : Images(temp) 
 	{
 		temp.display();
+		setFoodImage(temp);
 	}
 
 	//Food(int Xaxis, int Yaxis, int option)

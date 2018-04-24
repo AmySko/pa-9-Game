@@ -24,7 +24,7 @@ class Person : public Images
 public: 
 	Person(Images &temp) : Images(temp)
 	{
-
+		temp.display();
 	}
 
 	//Person(string name, int Xaxis, int Yaxis, double tarX, double tarY)
@@ -69,40 +69,40 @@ public:
 		case 22: //W
 			if (carrying)
 			{
-				dish.moveFoodY(sCarry, 5.0);
+				dish->moveFoodY(sCarry, 5.0);
 			}
 			movement(buttonPress);
 			break;
 		case 0: //A
 			if (carrying)
 			{
-				dish.moveFoodX(sCarry, -5.0);
+				dish->moveFoodX(sCarry, -5.0);
 			}
 			movement(buttonPress);
 			break;
 		case 18://S
 			if (carrying)
 			{
-				dish.moveFoodY(sCarry, -5.0);
+				dish->moveFoodY(sCarry, -5.0);
 			}
 			movement(buttonPress);
 			break;
 		case 3: //D
 			if (carrying)
 			{
-				dish.moveFoodX(sCarry, 5.0);
+				dish->moveFoodX(sCarry, 5.0);
 			}
 			movement(buttonPress);
 			break;
 		case 5: //F
 		//if this is true then there is a plate being carried and we want to drop it	
-		if (dish.carrytoDrop(sCarry, sDude))
+		if (dish->carrytoDrop(sCarry, sDude))
 		{
 			carrying = false;
 		}
 		else
 		{
-			carrying = dish.grabFood(sCarry, sDude);
+			carrying = dish->grabFood(sCarry, sDude);
 		}
 			break;
 		default:
@@ -161,7 +161,7 @@ private:
 
 	Sprite sDude;
 
-	Food dish;
+	Food *dish;
 	Sprite sCarry; // = dish.getSprite();
 	bool carrying;
 

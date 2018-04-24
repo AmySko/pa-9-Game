@@ -166,14 +166,14 @@ int main(void)
 			window.draw(chair8.getSprite());*/
 
 //			window.draw(table.getSprite());
-
-			window.draw(server.getSprite());
+			
+			window.draw(tempServer.getSprite());
 			//window.draw(andy.getSprite());
 
-
+			/*window.display();
 			window.draw(cheesecake1.getSprite());
 			window.draw(taco1.getSprite());
-			window.draw(chili1.getSprite());
+			window.draw(chili1.getSprite());*/
 
 
 			window.display();

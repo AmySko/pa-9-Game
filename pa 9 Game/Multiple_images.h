@@ -48,6 +48,8 @@ public:
 	void setTargetX(double newtargetX);
 	void setTargetY(double newtargetY);
 
+	void setFoodImage(Images &foodI);
+
 private:
 	Texture pic;
 	Sprite sPic;
