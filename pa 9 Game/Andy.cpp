@@ -16,12 +16,6 @@ int Andy::getYaxis()
 	return this->Yaxis;
 }
 
-Sprite Andy::getSprite()
-{
-	Sprite Spic;
-	Spic = pAndy->getSprite();
-	return Spic;
-}
 
 
 /*---------------setters-------------------------------*/

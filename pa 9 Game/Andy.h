@@ -14,41 +14,37 @@
 #include "Multiple_images.h"
 #include "Person.h"
 
-class Andy : public Images, public Person
+class Andy : public Person
 {
 public:
-	Andy()
+	Andy(Images &temp) : Person(temp)
 	{
-		pAndy = nullptr;
-		Xaxis = 0;
-		Yaxis = 0;
+
 	}
 
-	Andy(int Xaxis, int Yaxis)
-	{
-		Images dude;
-		pAndy = nullptr;
+	//Andy(int Xaxis, int Yaxis)
+	//{
+	//	/*Images dude;
+	//	pAndy = nullptr;
 
-		pAndy = new Images(dude);
-		if (pAndy != nullptr)
-		{
-			pAndy->setName("o'fallon.png");
-			pAndy->setXaxis(Xaxis);
-			pAndy->setYaxis(Yaxis);
-			pAndy->setTargetX(40.0f);
-			pAndy->setTargetY(35.0f);
+	//	pAndy = new Images(dude);
+	//	if (pAndy != nullptr)
+	//	{
+	//		pAndy->setName("o'fallon.png");
+	//		pAndy->setXaxis(Xaxis);
+	//		pAndy->setYaxis(Yaxis);
+	//		pAndy->setTargetX(40.0f);
+	//		pAndy->setTargetY(35.0f);
 
-			pAndy->display();
-		}
-	}
+	//		pAndy->display();
+	//	}*/
+	//}
 
 	~Andy();
 
 	/*---------------getters-------------------------------*/
 	int getXaxis();
 	int getYaxis();
-
-	Sprite getSprite();
 
 
 	/*---------------setters-------------------------------*/
@@ -59,7 +55,8 @@ public:
 	/*---------------Other functions-------------------------------*/
 
 private:
-	Images *pAndy;
+	/*Person *perAndy;
+	Images *pAndy;*/
 	int Xaxis;
 	int Yaxis;
 };

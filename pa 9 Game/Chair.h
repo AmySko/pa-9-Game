@@ -14,11 +14,18 @@
 #include "Multiple_images.h"
 #include "Furniture.h"
 
-class Chair : public Images, public Furniture
+using sf::Sprite;
+
+class Chair : public Furniture
 {
 public:
-	Chair(int Yaxis)
-	{	
+	Chair(Images &temp) : Furniture(temp)
+	{
+
+	}
+
+	/*Chair(int Yaxis)
+	{
 		Images stool;
 		pChair = nullptr;
 
@@ -32,20 +39,15 @@ public:
 			pChair->setTargetY(25.0f);
 
 			pChair->display();
-		}
-	}
+		}*/
+	//}
 
 	/*---------------getters-------------------------------*/
 
-	Sprite getSprite()
-	{
 	
-		Spic = pChair->getSprite();
-		return this->Spic;
-	}
 
 private:
-	Images *pChair;
-	Sprite Spic;
+	//Images *pChair;
+
 };
 

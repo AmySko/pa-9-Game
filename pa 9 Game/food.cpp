@@ -17,25 +17,34 @@ Food::~Food()
 /*---------------getters-------------------------------*/
 
 
-Sprite Food::getSprite()
-{
-	//Sprite Spic;
-	Spic = pFood->getSprite();
-	return Spic;
-}
+//Sprite Food::getSprite()
+//{
+//	//Sprite Spic;
+//	Spic = pFood->getSprite();
+//	return Spic;
+//}
 
 
 /*---------------setters-------------------------------*/
 
-void Food::setSprite(Sprite newsPic)
+//void Food::setSprite(Sprite newsPic)
+//{
+//	this->Spic = newsPic;
+//}
+void Food::setFoodImage(Images &foodI)
 {
-	this->Spic = newsPic;
+	//maybe put this in an overloaded operator func
+	this->setName(foodI.getName());
+	this->setXaxis(foodI.getXaxis());
+	this->setYaxis(foodI.getYaxis());
+	this->setTargetX(30.0f);
+	this->setTargetY(25.0f);
 }
 
 /*---------------Other Functions-------------------------------*/
-Sprite Food::operator= (Sprite rhs)
+Images & Food::operator= (Images &rhs)
 {
-	rhs = getSprite();
+	//this->setName(rhs.getName())
 	
 	
 	//rhs.getPosition() // gets the corner put it in
@@ -64,6 +73,7 @@ bool Food::carrytoDrop(Sprite &sGrab, Sprite waiter)
 }
 
 /*pass in a dummy sprite for what you are carrying and the waiter/server's sprite
+The dummy sprite becomes a new plate/ the plate you are carrying
 precondition: F is true and carrytoDrop is false*/
 bool Food::grabFood(Sprite &sGrab, Sprite waiter)
 {
@@ -97,8 +107,8 @@ bool Food::grabFood(Sprite &sGrab, Sprite waiter)
 		//if the object was grabbed clone it and position it next to the server
 		if (grabbed)
 		{
-			Food newPlate((boundsWaiter.left - 30), boundsWaiter.top, option);
-			sGrab = newPlate.getSprite();
+			//Food newPlate((boundsWaiter.left - 30), boundsWaiter.top, option);
+			//sGrab = newPlate.getSprite();
 		}
 		return grabbed;
 }

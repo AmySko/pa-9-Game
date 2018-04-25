@@ -8,13 +8,14 @@
 **************************************************************/
 #include "Multiple_images.h"
 
-Images::Images()
+Images::Images(string newname, int newXaxis, int newYaxis, double newtargetX, double newtargetY)
 {
-	this->Xaxis = 0;
-	this->Yaxis = 0;
-	this->name = "";
-	this->targetX = 0.0;
-	this->targetY = 0.0;
+	this->Xaxis = newXaxis;
+	this->Yaxis = newYaxis;
+	this->name = newname;
+	this->targetX = newtargetX;
+	this->targetY = newtargetY;
+	display();
 }
 
 Images::Images(Images &newdata)
@@ -24,6 +25,8 @@ Images::Images(Images &newdata)
 	Yaxis = newdata.Yaxis;
 	targetX = newdata.targetX;
 	targetY = newdata.targetY;
+	
+	display();
 }
 
 bool Images::display()
@@ -41,7 +44,7 @@ bool Images::display()
 	//changes the size of pic
 	sPic.setScale(targetSizePic.x / sPic.getLocalBounds().width, targetSizePic.y / sPic.getLocalBounds().height);
 	//start position of pic
-	setpos(Xaxis, Yaxis);
+	setpos(getXaxis(), getYaxis());
 
 	//would exit the function if runtime_error
 	return true;
@@ -110,4 +113,9 @@ void Images::setTargetX(double newtargetX)
 void Images::setTargetY(double newtargetY)
 {
 	this->targetY = newtargetY;
+}
+
+void Images::setFoodImage(Images &foodI)
+{
+
 }
