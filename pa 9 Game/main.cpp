@@ -105,7 +105,7 @@ int main(void)
 		/*-----------------------------Renders Window--------------------------*/
 
 		//changes the window size that pops up
-		sf::RenderWindow window(sf::VideoMode(800, 400), "SFML works!");
+		sf::RenderWindow window(sf::VideoMode(800, 400), "Welcome to 'Menu'!");
 
 
 		/*--------------------sets the background of restraunt ----------------*/
@@ -175,7 +175,6 @@ int main(void)
 			window.draw(server.getSprite());
 			window.draw(andy.getSprite());
 
-			//window.display();
 			window.draw(cheesecake1.getSprite());
 			window.draw(taco1.getSprite());
 			window.draw(chili1.getSprite());
