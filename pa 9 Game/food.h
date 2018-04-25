@@ -44,11 +44,11 @@ public:
 	/*---------------Other Functions-------------------------------*/
 	Images & operator= (Images &rhs);
 
-	bool cipherKeyGrab(int &carrying, Images &gFood, Images &foo, Sprite waiter, int &index);
+	bool cipherKeyGrab(int &carrying, Sprite waiter, int &index);
 	bool carrytoDrop(Sprite &sGrab, sf::FloatRect boundsWaiter);
-	bool grabFood(Images &gFood, sf::FloatRect boundsWaiter);
+	bool grabFood(sf::FloatRect boundsWaiter);
 
-	void moveFood(Images &gFood, double moveX, double moveY);
+	void moveFood(double moveX, double moveY);
 
 	void moveFoodX(Sprite sGrab, double moveX);
 	void moveFoodY(Sprite sGrab, double moveY);

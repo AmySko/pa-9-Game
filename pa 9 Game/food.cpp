@@ -51,7 +51,7 @@ carrying:
 	2 not carrying, just continue
 	3 carrying and move
 */
-bool Food::cipherKeyGrab(int &carrying, Images &gFood, Images &foo, Sprite waiter, int &index) //may want an if statement in main to shorten
+bool Food::cipherKeyGrab(int &carrying, Sprite waiter, int &index) //may want an if statement in main to shorten
 {
 	bool update = false;
 	sf::FloatRect boundsWaiter;
@@ -61,34 +61,23 @@ bool Food::cipherKeyGrab(int &carrying, Images &gFood, Images &foo, Sprite waite
 	{
 	case -1://E pressed put down
 		carrying = 2;
+		update = true;
 		break;
 	case 1://F pressed see if can pick up and do so
-		--index;
-		if (index < 8)
+		//--index;
+		/*if (index < 8)
 		{
 			index++;
 		}
 		else
 		{
 			index = 1;
-		}
+		}*/
 		//foo = gFood[index];
-		if (grabFood(gFood, boundsWaiter))
+		if (grabFood(boundsWaiter))
 		{
-			(gFood).display();
+			this->display();
 			carrying = 3;
-			update = true;
-		}
-		else
-		{
-			if (index != 1)
-			{
-				--index;
-			}
-			else
-			{
-				index = 8;
-			}
 		}
 		
 		break;
@@ -97,8 +86,8 @@ bool Food::cipherKeyGrab(int &carrying, Images &gFood, Images &foo, Sprite waite
 		break;
 	case 3://move where appropriate 
 		
-		moveFood((gFood), (boundsWaiter.left - 30), boundsWaiter.top);
-		gFood.display();
+		moveFood((boundsWaiter.left - 30), boundsWaiter.top);
+		this->display();
 		break;
 	}
 	return update;
@@ -130,49 +119,49 @@ bool Food::carrytoDrop(Sprite &sGrab, sf::FloatRect boundsWaiter)
 /*pass in a dummy sprite for what you are carrying and the waiter/server's sprite
 The dummy sprite becomes a new plate/ the plate you are carrying
 precondition: F is true and carrytoDrop is false*/
-bool Food::grabFood(Images &gFood, sf::FloatRect boundsWaiter)
+bool Food::grabFood(sf::FloatRect boundsWaiter)
 {
 	bool grabbed = false;
 
 	//if the waiter is within a certain distance of the food
 		if ((boundsWaiter.left >= (710)) && (boundsWaiter.top >= (40)) && (boundsWaiter.top <= (70))) //taco
 		{
-			gFood.setName("taco_butt.png");
-			gFood.setXaxis(760);
-			gFood.setYaxis(55);
+			this->setName("taco_butt.png");
+			this->setXaxis(760);
+			this->setYaxis(55);
 			grabbed = true;
 			//option = 1;
 		}
 		else if ((boundsWaiter.left >= (710)) && (boundsWaiter.top >= (130)) && (boundsWaiter.top <= (160))) //cheesecake
 		{
-			gFood.setName("Cheesecake.png");
-			gFood.setXaxis(760);
-			gFood.setYaxis(144);
+			this->setName("Cheesecake.png");
+			this->setXaxis(760);
+			this->setYaxis(144);
 			grabbed = true;
 			//option = 2;
 		}
 		else if ((boundsWaiter.left >= (710)) && (boundsWaiter.top >= (220)) && (boundsWaiter.top <= (240))) //chili
 		{
-			gFood.setName("chili.png");
-			gFood.setXaxis(760);
-			gFood.setYaxis(230);
+			this->setName("chili.png");
+			this->setXaxis(760);
+			this->setYaxis(230);
 			grabbed = true;
 			//option = 3;
 		}
 		//if the object was grabbed clone it and position it next to the server
 		if (grabbed)
 		{
-			moveFood(gFood, (boundsWaiter.left - 30), boundsWaiter.top);
+			moveFood((boundsWaiter.left - 30), boundsWaiter.top);
 			//Plates.push_back(gFood); 
 		}
 		return grabbed;
 }
 
-void Food::moveFood(Images &gFood, double moveX, double moveY)
+void Food::moveFood(double moveX, double moveY)
 {
 	//sGrab.move(moveX, moveY); //need to be floating points
-	gFood.setXaxis(moveX);
-	gFood.setYaxis(moveY);
+	this->setXaxis(moveX);
+	this->setYaxis(moveY);
 }
 
 /*

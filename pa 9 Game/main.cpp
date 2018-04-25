@@ -148,10 +148,7 @@ int main(void)
 
 		/*-----------------------------Window------------------------------------*/
 
-		/*
-
-
-		*/
+		
 		//sets time for game to end
 		std::chrono::steady_clock::time_point tend = std::chrono::steady_clock::now()
 			+ std::chrono::minutes(2);
@@ -181,17 +178,7 @@ int main(void)
 		Andy andy7(tempAndy7);
 		Andy andy8(tempAndy8);
 		Andy AndyArray[8] = {andy1, andy2, andy3, andy4, andy5, andy6, andy7, andy8};
-		/*AndyArray[0] = andy1;
-		AndyArray[1] = andy2;
-		AndyArray[2] = andy3;
-		AndyArray[3] = andy4;
-		AndyArray[4] = andy5;
-		AndyArray[5] = andy6;
-		AndyArray[6] = andy7;
-		AndyArray[7] = andy8;*/
-
-
-
+		
 
 
 
@@ -213,20 +200,20 @@ int main(void)
 				case Event::KeyPressed:
 					cout << event.key.code << endl;
 					server.keyListener(event.key.code, carrying);
-					updateI = gFood[index].cipherKeyGrab(carrying, gFood[i], gFood[i], server.getSprite(), index);
+					updateI = gFood[index].cipherKeyGrab(carrying, server.getSprite(), index);
 					//displays moving server
 					server.display();
-
-					if (index != 1)
+					if (updateI)
 					{
-						i = index - 1;
+						if (index < 8)
+						{
+							index++;
+						}
+						else
+						{
+							index = 1;
+						}
 					}
-					else
-					{
-						i = 1;
-					}
-
-					
 					break;
 				default:
 					break;
@@ -264,12 +251,9 @@ int main(void)
 						window.draw(AndyArray[k].getSprite());
 					AndyArray[k].keyListener(3, carryinga);
 					AndyArray[k].display();
-				//	cout << "WHAT THE HELL RIGHT?!" << std::endl;
-
+				
 				}
-				//andy1.keyListener(270, carryinga);
-				//andy1.display();
-				//andy1.keyListener(270, carryinga);
+				
 			}
 
 			window.draw(server.getSprite());
