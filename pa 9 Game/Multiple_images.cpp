@@ -25,6 +25,7 @@ Images::Images(Images &newdata)
 	Yaxis = newdata.Yaxis;
 	targetX = newdata.targetX;
 	targetY = newdata.targetY;
+	
 	display();
 }
 

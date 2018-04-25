@@ -40,12 +40,12 @@ public:
 	}
 
 
-	void updatePosition(Images &pServer) {
-
+	Images & updatePosition(Images &pServer) {
 		
-		pServer.setXaxis(getXPos());
-		pServer.setYaxis(getYPos());
+		pServer.setXaxis(getXaxis());
+		pServer.setYaxis(getYaxis());
 		pServer.display();
+		return pServer;
 	}
 
 	~Server();

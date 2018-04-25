@@ -24,8 +24,8 @@ class Person : public Images
 public: 
 	Person(Images &temp) : Images(temp)
 	{
-
-		temp.display();
+	
+	//	temp.display();
 	}
 
 	//Person(string name, int Xaxis, int Yaxis, double tarX, double tarY)
@@ -114,23 +114,23 @@ public:
 	void movement(int direction) {
 		switch (direction) {
 		case 22:
-			if (getYPos() - 5 > 0) {
-				this->setYpos(getYPos() - 5);
+			if (getYaxis() - 5 > 0) {
+				this->setYaxis(getYaxis() - 5);
 			}
 			break;
 		case 0:
-			if (getXPos() - 5 > 0) {
-				this->setXpos(getXPos() - 5);
+			if (getXaxis() - 5 > 0) {
+				this->setXaxis(getXaxis() - 5);
 			}
 			break;
 		case 18:
-			if (getYPos() + 5 < 350) {
-				this->setYpos(getYPos() + 5);
+			if (getYaxis() + 5 < 350) {
+				this->setYaxis(getYaxis() + 5);
 			}
 			break;
 		case 3:
-			if (getXPos() + 5 < 750) {
-				this->setXpos(getXPos() + 5);
+			if (getXaxis() + 5 < 750) {
+				this->setXaxis(getXaxis() + 5);
 			}
 			break;
 		default:
