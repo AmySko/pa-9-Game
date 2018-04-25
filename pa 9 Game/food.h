@@ -48,11 +48,11 @@ public:
 	/*---------------Other Functions-------------------------------*/
 	Images & operator= (Images &rhs);
 
-	void cipherKeyGrab(int carrying, Images &gFood, Sprite waiter);
+	void cipherKeyGrab(int &carrying, Images &gFood, Sprite waiter);
 	bool carrytoDrop(Sprite &sGrab, sf::FloatRect boundsWaiter);
 	bool grabFood(Images &gFood, sf::FloatRect boundsWaiter);
 
-	void moveFood(Sprite sGrab, double moveX, double moveY);
+	void moveFood(Images &gFood, double moveX, double moveY);
 
 	void moveFoodX(Sprite sGrab, double moveX);
 	void moveFoodY(Sprite sGrab, double moveY);

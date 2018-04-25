@@ -75,7 +75,7 @@ public:
 		True: carrying
 		false: not carrying
 	*/
-	int keyListener(int buttonPress, int carrying) {
+	int keyListener(int buttonPress, int &carrying) {
 		
 		switch(buttonPress) {
 		case 22: //W

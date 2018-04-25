@@ -153,6 +153,9 @@ int main(void)
 					//server.getSprite(), gFood
 					gFood.cipherKeyGrab(carrying, gFood, server.getSprite());
 					server.display();
+					gFood.display();
+					window.draw(gFood.getSprite());
+					window.display();
 					break;
 
 				default:

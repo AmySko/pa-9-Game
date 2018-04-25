@@ -51,7 +51,7 @@ carrying:
 	2 not carrying, just continue
 	3 carrying and move
 */
-void Food::cipherKeyGrab(int carrying, Images &gFood, Sprite waiter) //may want an if statement in main to shorten
+void Food::cipherKeyGrab(int &carrying, Images &gFood, Sprite waiter) //may want an if statement in main to shorten
 {
 	sf::FloatRect boundsWaiter;
 	boundsWaiter = waiter.getGlobalBounds();
@@ -72,7 +72,7 @@ void Food::cipherKeyGrab(int carrying, Images &gFood, Sprite waiter) //may want 
 
 		break;
 	case 3://move where appropriate
-		moveFood(gFood.getSprite(), (boundsWaiter.left - 30), boundsWaiter.top);
+		moveFood(gFood, (boundsWaiter.left - 30), boundsWaiter.top);
 		break;
 	}
 }
@@ -146,17 +146,20 @@ bool Food::grabFood(Images &gFood, sf::FloatRect boundsWaiter)
 		{
 			//setFoodImage(gFood);
 			//newPlate(option, sGrab);
-			moveFoodX(gFood.getSprite(), (boundsWaiter.left - 30));
-			moveFoodY(gFood.getSprite(), boundsWaiter.top);
+			moveFood(gFood, (boundsWaiter.left - 30), boundsWaiter.top);
+			/*moveFoodX(gFood.getSprite(), (boundsWaiter.left - 30));
+			moveFoodY(gFood.getSprite(), boundsWaiter.top);*/
 			
 			gFood.display();
 		}
 		return grabbed;
 }
 
-void Food::moveFood(Sprite sGrab, double moveX, double moveY)
+void Food::moveFood(Images &gFood, double moveX, double moveY)
 {
-	sGrab.move(moveX, moveY); //need to be floating points
+	//sGrab.move(moveX, moveY); //need to be floating points
+	gFood.setXaxis(moveX);
+	gFood.setYaxis(moveY);
 }
 
 /*
