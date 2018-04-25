@@ -100,13 +100,13 @@ int main(void)
 
 
 
-
+	
 
 	int carrying = 0;
 	int index = 1;
 	bool updateI = false;
 	int i = 0;
-
+	int carryinga = 2;
 	/**************************************************Coding the screen**************************************************************/
 
 	/*------------------------------------Menu--------------------------------*/
@@ -144,7 +144,7 @@ int main(void)
 
 		*/
 
-		Images AndyArray[8];
+		
 
 		/*-----------------------------Window------------------------------------*/
 
@@ -180,14 +180,15 @@ int main(void)
 		Andy andy6(tempAndy6);
 		Andy andy7(tempAndy7);
 		Andy andy8(tempAndy8);
-		AndyArray[0] = andy1;
+		Andy AndyArray[8] = {andy1, andy2, andy3, andy4, andy5, andy6, andy7, andy8};
+		/*AndyArray[0] = andy1;
 		AndyArray[1] = andy2;
 		AndyArray[2] = andy3;
 		AndyArray[3] = andy4;
 		AndyArray[4] = andy5;
 		AndyArray[5] = andy6;
 		AndyArray[6] = andy7;
-		AndyArray[7] = andy8;
+		AndyArray[7] = andy8;*/
 
 
 
@@ -251,11 +252,15 @@ int main(void)
 	
 			for (int k = 0; k < 8; k++) {
 				if (chairList[k].getChairStatus() == true) {
-					window.draw(AndyArray[k].getSprite());
-
-					cout << "WHAT THE HELL RIGHT?!" << std::endl;
+						window.draw(AndyArray[k].getSprite());
+					AndyArray[k].keyListener(3, carryinga);
+					AndyArray[k].display();
+				//	cout << "WHAT THE HELL RIGHT?!" << std::endl;
 
 				}
+				//andy1.keyListener(270, carryinga);
+				//andy1.display();
+				//andy1.keyListener(270, carryinga);
 			}
 
 

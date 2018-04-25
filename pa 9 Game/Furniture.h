@@ -32,6 +32,10 @@ public:
 		if (signal == 1) {
 			chairEmpty = false;
 		}
+		else
+		{
+			chairEmpty = true;
+		}
 	}
 
 	bool getChairStatus() {

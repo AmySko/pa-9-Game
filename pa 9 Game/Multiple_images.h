@@ -49,7 +49,7 @@ public:
 	void setTargetX(double newtargetX);
 	void setTargetY(double newtargetY);
 
-	void setFoodImage(Images &foodI);
+	virtual void setImage(Images &fooI);
 
 	/*---------------Other functions-------------------------------*/
 	bool display();

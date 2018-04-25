@@ -25,12 +25,12 @@ Food::~Food()
 //{
 //	this->Spic = newsPic;
 //}
-void Food::setFoodImage(Images &foodI)
+void Food::setImage(Images &fooI)
 {
 	//maybe put this in an overloaded operator func
-	this->setName(foodI.getName());
-	this->setXaxis(foodI.getXaxis());
-	this->setYaxis(foodI.getYaxis());
+	this->setName(fooI.getName());
+	this->setXaxis(fooI.getXaxis());
+	this->setYaxis(fooI.getYaxis());
 	this->setTargetX(30.0f);
 	this->setTargetY(25.0f);
 }

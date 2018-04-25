@@ -19,7 +19,8 @@ class Andy : public Person
 public:
 	Andy(Images &temp) : Person(temp)
 	{
-
+		temp.display();
+		setImage(temp);
 	}
 
 
@@ -40,6 +41,16 @@ public:
 	virtual void printType()
 	{
 		cout << "Andy!" << std::endl;
+	}
+
+	void setImage(Images &fooI)
+	{
+		//maybe put this in an overloaded operator func
+		this->setName(fooI.getName());
+		this->setXaxis(fooI.getXaxis());
+		this->setYaxis(fooI.getYaxis());
+		this->setTargetX(40.0f);
+		this->setTargetY(35.0f);
 	}
 
 private:

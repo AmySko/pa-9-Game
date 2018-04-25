@@ -97,7 +97,7 @@ void Images::setTargetY(double newtargetY)
 	this->targetY = newtargetY;
 }
 
-void Images::setFoodImage(Images &foodI)
+void Images::setImage(Images &fooI)
 {
 
 }

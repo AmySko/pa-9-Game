@@ -86,41 +86,24 @@ public:
 			movement(buttonPress);
 			break;
 		case 0: //A
-			
-			/*{
-				dish->moveFoodX(gFood.getSprite(), -5.0);
-			}*/
 			movement(buttonPress);
 			break;
+
 		case 18://S
-			/*if (carrying)
-			{
-				dish->moveFoodY(gFood.getSprite(), -5.0);
-			}*/
 			movement(buttonPress);
 			break;
+
 		case 3: //D
-			/*if (carrying)
-			{
-				cout << carrying << std::endl;
-				dish->moveFoodX(gFood.getSprite(), 5.0);
-			}*/
 			movement(buttonPress);
 			break;
+
 		case 5: carrying = 1;//F
-		//if this is true then there is a plate being carried and we want to drop it	
-		/*if (dish->carrytoDrop(gFood.getSprite(), sDude))
-		{
-			carrying = false;
-		}
-		else
-		{
-			carrying = dish->grabFood(gFood, sDude);
-		}*/
 			break;
+
 		case 4://E
 			carrying = -1;
 			break;
+
 		default:
 			break;
 		}

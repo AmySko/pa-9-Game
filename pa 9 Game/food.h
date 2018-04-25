@@ -28,7 +28,7 @@ public:
 	Food(Images &temp) : Images(temp) 
 	{
 		temp.display();
-		setFoodImage(temp);
+		setImage(temp);
 	}
 
 	~Food();
@@ -39,7 +39,7 @@ public:
 	/*---------------setters-------------------------------*/
 
 	//void setSprite(Sprite newsPic);
-	void setFoodImage(Images &foodI);
+	void setImage(Images &fooI);
 
 	/*---------------Other Functions-------------------------------*/
 	Images & operator= (Images &rhs);
