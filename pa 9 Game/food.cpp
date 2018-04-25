@@ -45,6 +45,7 @@ Sprite Food::operator= (Sprite rhs)
 bool Food::carrytoDrop()
 {
 	//if the food is at the carrying position, this will be called first when F key is pressed
+	return;
 }
 
 bool Food::grabFood(Sprite sPic, Sprite waiter)
@@ -72,6 +73,7 @@ bool Food::grabFood(Sprite sPic, Sprite waiter)
 	
 	//if F = true
 	//moveFood(left, top, sPic);
+		return;
 }
 
 void Food::moveFood(double stepX, double stepY, Sprite sPic)

@@ -19,7 +19,7 @@ using sf::Texture;
 using sf::Sprite;
 using std::string;
 
-class Counter : public Images, public Furniture
+class Counter : public Furniture
 {
 public:
 	Counter()

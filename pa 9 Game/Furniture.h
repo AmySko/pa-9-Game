@@ -20,7 +20,7 @@ using std::cin;
 
 
 
-class Furniture 
+class Furniture: public Images
 {
 public:
 	Furniture()
