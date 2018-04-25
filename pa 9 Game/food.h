@@ -53,7 +53,10 @@ public:
 	void moveFoodX(Sprite sGrab, double moveX);
 	void moveFoodY(Sprite sGrab, double moveY);
 
-	
+	virtual void printType()
+	{
+		cout << "Food!" << std::endl;
+	}
 
 private:
 	//bool eaten(vector<Images> Plates);

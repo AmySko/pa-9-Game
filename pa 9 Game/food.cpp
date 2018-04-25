@@ -98,7 +98,7 @@ bool Food::cipherKeyGrab(int &carrying, Images &gFood, Images &foo, Sprite waite
 	case 3://move where appropriate 
 		
 		moveFood((gFood), (boundsWaiter.left - 30), boundsWaiter.top);
-		gFood.display();
+		this->display();
 		break;
 	}
 	return update;
@@ -137,25 +137,25 @@ bool Food::grabFood(Images &gFood, sf::FloatRect boundsWaiter)
 	//if the waiter is within a certain distance of the food
 		if ((boundsWaiter.left >= (710)) && (boundsWaiter.top >= (40)) && (boundsWaiter.top <= (70))) //taco
 		{
-			gFood.setName("taco_butt.png");
-			gFood.setXaxis(760);
-			gFood.setYaxis(55);
+			this->setName("taco_butt.png");
+			this->setXaxis(760);
+			this->setYaxis(55);
 			grabbed = true;
 			//option = 1;
 		}
 		else if ((boundsWaiter.left >= (710)) && (boundsWaiter.top >= (130)) && (boundsWaiter.top <= (160))) //cheesecake
 		{
-			gFood.setName("Cheesecake.png");
-			gFood.setXaxis(760);
-			gFood.setYaxis(144);
+			this->setName("Cheesecake.png");
+			this->setXaxis(760);
+			this->setYaxis(144);
 			grabbed = true;
 			//option = 2;
 		}
 		else if ((boundsWaiter.left >= (710)) && (boundsWaiter.top >= (220)) && (boundsWaiter.top <= (240))) //chili
 		{
-			gFood.setName("chili.png");
-			gFood.setXaxis(760);
-			gFood.setYaxis(230);
+			this->setName("chili.png");
+			this->setXaxis(760);
+			this->setYaxis(230);
 			grabbed = true;
 			//option = 3;
 		}
@@ -171,8 +171,8 @@ bool Food::grabFood(Images &gFood, sf::FloatRect boundsWaiter)
 void Food::moveFood(Images &gFood, double moveX, double moveY)
 {
 	//sGrab.move(moveX, moveY); //need to be floating points
-	gFood.setXaxis(moveX);
-	gFood.setYaxis(moveY);
+	this->setXaxis(moveX);
+	this->setYaxis(moveY);
 }
 
 /*

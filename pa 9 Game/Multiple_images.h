@@ -53,7 +53,7 @@ public:
 	/*---------------Other functions-------------------------------*/
 	bool display();
 	//bool displayVec(vector<Images> dishes);
-
+	virtual void printType() = 0;
 
 private:
 	Texture pic;
