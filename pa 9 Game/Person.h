@@ -118,7 +118,7 @@ public:
 			}
 			break;
 		case 0:
-			if (getXaxis() - 5 > 0) {
+			if ((getXaxis() - 5 > 0) && (getXaxis() + 5 != 280)) {
 				this->setXaxis(getXaxis() - 5);
 			}
 			break;
@@ -128,7 +128,7 @@ public:
 			}
 			break;
 		case 3:
-			if (getXaxis() + 5 < 750) {
+			if ((getXaxis() + 5 < 750) && (getXaxis() + 5 != 270)) {
 				this->setXaxis(getXaxis() + 5);
 			}
 			break;

@@ -248,6 +248,15 @@ int main(void)
 
 			window.draw(counter.getSprite());
 
+			window.draw(chair.getSprite());
+			window.draw(chair2.getSprite());
+			window.draw(chair3.getSprite());
+			window.draw(chair4.getSprite());
+			window.draw(chair5.getSprite());
+			window.draw(chair6.getSprite());
+			window.draw(chair7.getSprite());
+			window.draw(chair8.getSprite());
+			window.draw(table.getSprite());
 
 	
 			for (int k = 0; k < 8; k++) {
@@ -262,17 +271,6 @@ int main(void)
 				//andy1.display();
 				//andy1.keyListener(270, carryinga);
 			}
-
-
-			window.draw(chair.getSprite());
-			window.draw(chair2.getSprite());
-			window.draw(chair3.getSprite());
-			window.draw(chair4.getSprite());
-			window.draw(chair5.getSprite());
-			window.draw(chair6.getSprite());
-			window.draw(chair7.getSprite());
-			window.draw(chair8.getSprite());
-			window.draw(table.getSprite());
 
 			window.draw(server.getSprite());
 
