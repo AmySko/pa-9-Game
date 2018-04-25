@@ -12,10 +12,12 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <string>
+#include <vector>
 
 using sf::Texture;
 using sf::Sprite;
 using std::string;
+using std::vector;
 
 class Images
 {
@@ -23,10 +25,6 @@ public:
 	Images(string newname, int newXaxis, int newYaxis, double newtargetX, double newtargerY);
 	Images(Images &newdata);
 	~Images();
-
-	bool display();
-
-	void setpos(int Xaxis, int Yaxis);
 
 	/*---------------getters-------------------------------*/
 
@@ -41,6 +39,8 @@ public:
 
 	/*---------------setters-------------------------------*/
 
+	void setpos(int Xaxis, int Yaxis);
+
 	void setSprite(Sprite newsPic);
 	void setXaxis(int newXaxis);
 	void setYaxis(int newYaxis);
@@ -49,6 +49,11 @@ public:
 	void setTargetY(double newtargetY);
 
 	void setFoodImage(Images &foodI);
+
+	/*---------------Other functions-------------------------------*/
+	bool display();
+	//bool displayVec(vector<Images> dishes);
+
 
 private:
 	Texture pic;

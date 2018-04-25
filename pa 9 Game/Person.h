@@ -25,7 +25,7 @@ public:
 	Person(Images &temp) : Images(temp)
 	{
 	
-	//	temp.display();
+		carrying = false;
 	}
 
 	//Person(string name, int Xaxis, int Yaxis, double tarX, double tarY)
@@ -64,51 +64,67 @@ public:
 	Andy will never be by food when he moves, so this should work
 	Food needs to go poof before Andy gets up
 	sCarry is the sprite you are carrying
+
+	returns: 
+		-1 for put down
+		1 pick up 
+		2 not carrying
+		3 carrying 
+
+		bool:
+		True: carrying
+		false: not carrying
 	*/
-	void keyListener(int buttonPress) {
+	int keyListener(int buttonPress, int &carrying) {
+		
 		switch(buttonPress) {
 		case 22: //W
-			if (carrying)
+			/*if (carrying)
 			{
-				dish->moveFoodY(sCarry, 5.0);
-			}
+				dish->moveFoodY(gFood.getSprite(), 5.0);
+			}*/
 			movement(buttonPress);
 			break;
 		case 0: //A
-			if (carrying)
-			{
-				dish->moveFoodX(sCarry, -5.0);
-			}
+			
+			/*{
+				dish->moveFoodX(gFood.getSprite(), -5.0);
+			}*/
 			movement(buttonPress);
 			break;
 		case 18://S
-			if (carrying)
+			/*if (carrying)
 			{
-				dish->moveFoodY(sCarry, -5.0);
-			}
+				dish->moveFoodY(gFood.getSprite(), -5.0);
+			}*/
 			movement(buttonPress);
 			break;
 		case 3: //D
-			if (carrying)
+			/*if (carrying)
 			{
-				dish->moveFoodX(sCarry, 5.0);
-			}
+				cout << carrying << std::endl;
+				dish->moveFoodX(gFood.getSprite(), 5.0);
+			}*/
 			movement(buttonPress);
 			break;
-		case 5: //F
+		case 5: carrying = 1;//F
 		//if this is true then there is a plate being carried and we want to drop it	
-		if (dish->carrytoDrop(sCarry, sDude))
+		/*if (dish->carrytoDrop(gFood.getSprite(), sDude))
 		{
 			carrying = false;
 		}
 		else
 		{
-			carrying = dish->grabFood(sCarry, sDude);
-		}
+			carrying = dish->grabFood(gFood, sDude);
+		}*/
+			break;
+		case 4://E
+			carrying = -1;
 			break;
 		default:
 			break;
 		}
+		return carrying;
 	}
 
 	void movement(int direction) {
@@ -155,12 +171,15 @@ void setYpos(int newYPos) {
 	this->yPos = newYPos;
 }
 
-
+virtual void printType()
+{
+	cout << "Person!" << std::endl;
+}
 
 private:
 	Images *iPerson;
 
-	Sprite sDude;
+	//Sprite sDude;
 
 	Food *dish;
 	Sprite sCarry; // = dish.getSprite();

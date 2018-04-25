@@ -29,37 +29,12 @@ Images::Images(Images &newdata)
 	display();
 }
 
-bool Images::display()
-{
-	bool success = false;
-	//loads pic from file
-	if (!pic.loadFromFile(name))
-	{
-		throw std::runtime_error("could not load image");
-	}
-	//puts texture in sprite
-	sPic.setTexture(pic);
-	//the size we want the pic
-	sf::Vector2f targetSizePic(getTargetX(), getTargetY());
-	//changes the size of pic
-	sPic.setScale(targetSizePic.x / sPic.getLocalBounds().width, targetSizePic.y / sPic.getLocalBounds().height);
-	//start position of pic
-	setpos(getXaxis(), getYaxis());
-
-	//would exit the function if runtime_error
-	return true;
-}
 
 Images::~Images()
 {
 
 }
 
-//set the x and y axis of where the image will be placed
-void Images::setpos(int Xaxis, int Yaxis)
-{
-	sPic.setPosition(*(new sf::Vector2f(Xaxis, Yaxis)));
-}
 
 //get the sprite
 Sprite Images::getSprite()
@@ -86,6 +61,13 @@ double Images::getTargetX()
 double Images::getTargetY()
 {
 	return this->targetY;
+}
+
+
+//set the x and y axis of where the image will be placed
+void Images::setpos(int Xaxis, int Yaxis)
+{
+	sPic.setPosition(*(new sf::Vector2f(Xaxis, Yaxis)));
 }
 
 void Images::setSprite(Sprite newsPic)
@@ -119,3 +101,32 @@ void Images::setFoodImage(Images &foodI)
 {
 
 }
+
+
+/*---------------Other functions-------------------------------*/
+
+bool Images::display()
+{
+	bool success = false;
+	//loads pic from file
+	if (!pic.loadFromFile(name))
+	{
+		throw std::runtime_error("could not load image");
+	}
+	//puts texture in sprite
+	sPic.setTexture(pic);
+	//the size we want the pic
+	sf::Vector2f targetSizePic(getTargetX(), getTargetY());
+	//changes the size of pic
+	sPic.setScale(targetSizePic.x / sPic.getLocalBounds().width, targetSizePic.y / sPic.getLocalBounds().height);
+	//start position of pic
+	setpos(getXaxis(), getYaxis());
+
+	//would exit the function if runtime_error
+	return true;
+}
+
+//bool Images::displayVec(vector<Images> dishes)
+//{
+//
+//}

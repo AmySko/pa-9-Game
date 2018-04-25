@@ -41,10 +41,16 @@ int main(void)
 	Images tempTaco("taco_butt.png", 760, 55, 30.0f, 25.0f), tempCheesecake("Cheesecake.png", 760, 144, 30.0f, 25.0f), 
 		tempChili("chili.png", 760, 230, 30.0f, 25.0f);
 	Images table("dark-oak-table-top.jpg", 300, 15, 50.0f, 320.0f), counter("marble2.jpg", 755, 15, 50.0f, 320.0f);
+	
+	//------Chairs only declared here---------//
 	Images chair("round-wood1.jpg", 270, 15, 30.0f, 25.0f), chair2("round-wood1.jpg", 270, 58, 30.0f, 25.0f), chair3("round-wood1.jpg", 270, 101, 30.0f, 25.0f),
 		chair4("round-wood1.jpg", 270, 144, 30.0f, 25.0f), chair5("round-wood1.jpg", 270, 187, 30.0f, 25.0f), chair6("round-wood1.jpg", 270, 230, 30.0f, 25.0f),
 		chair7("round-wood1.jpg", 270, 273, 30.0f, 25.0f), chair8("round-wood1.jpg", 270, 310, 30.0f, 25.0f);
 
+	
+	Food gFood[9] = {tempTaco, tempTaco, tempTaco, tempTaco,tempTaco, tempTaco, tempTaco, tempTaco, tempTaco};
+	Food foo(tempTaco);
+	//Food *gFood(tempTaco);
 	//names of files for the table and the counter
 	//string lWall = "wall.jpg", lClosed = "door_closed.jpg", lOpen = "door_open.jpg";
 
@@ -69,8 +75,8 @@ int main(void)
 	//Food chili1(760, 230, 3);
 	Food taco1(tempTaco), cheesecake1(tempCheesecake), chili1(tempChili);
 
-	vector<Food> Plates;
-	//Plates.push_back(taco1);
+	//vector<Food> Plates;
+	//Plates.push_back(tempTaco);
 
 
 	/*-------------------Characters ------------------------------*/
@@ -86,7 +92,10 @@ int main(void)
 	sf::Time cook; //takes to cook
 	sf::Time walkout; //how long Andy is willing to wait
 
-
+	int carrying = 0;
+	int index = 1;
+	bool updateI = false;
+	int i = 0;
 	/**************************************************Coding the screen**************************************************************/
 	
 	/*------------------------------------Menu--------------------------------*/
@@ -137,15 +146,28 @@ int main(void)
 
 			while (window.pollEvent(event))
 			{
-				switch(event.type){
+				switch (event.type) {
 
 				case Event::Closed:
 					window.close();
 					break;
 				case Event::KeyPressed:
 					cout << event.key.code << endl;
-					server.keyListener(event.key.code);
+					server.keyListener(event.key.code, carrying);
+					updateI = gFood[index].cipherKeyGrab(carrying, gFood[i], gFood[i], server.getSprite(), index);
+					//displays moving server
 					server.display();
+
+					if (index != 1)
+					{
+						i = index - 1;
+					}
+					else
+					{
+						i = 1;
+					}
+
+					
 					break;
 
 				default:
@@ -175,8 +197,18 @@ int main(void)
 			window.draw(server.getSprite());
 			window.draw(andy.getSprite());
 
-			window.draw(cheesecake1.getSprite());
+			//ignoring gFood[0]
+			window.draw(gFood[1].getSprite());
+			window.draw(gFood[2].getSprite());
+			window.draw(gFood[3].getSprite());
+			window.draw(gFood[4].getSprite());
+			window.draw(gFood[5].getSprite());
+			window.draw(gFood[6].getSprite());
+			window.draw(gFood[7].getSprite());
+			window.draw(gFood[8].getSprite());
+			
 			window.draw(taco1.getSprite());
+			window.draw(cheesecake1.getSprite());
 			window.draw(chili1.getSprite());
 
 
