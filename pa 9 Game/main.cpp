@@ -30,17 +30,23 @@ influences:
 #include "Andy.h"
 #include "Server.h"
 
+using namespace sf;
 
 int main(void)
 {
 	/**************************************************Initalizing Variables**************************************************************/
-	
+	/*-----------------------------temp images--------------------------*/
+
+	Images tempServer("Dwight.jpg", 300, 25, 40.0f, 35.0f), tempAndy("o'fallon.png", 0, 350, 40.0f, 35.0f);
+	Images tempTaco("taco_butt.png", 760, 55, 30.0f, 25.0f), tempCheesecake("Cheesecake.png", 760, 144, 30.0f, 25.0f), tempChili("chili.png", 760, 230, 30.0f, 25.0f);
+
+
 	//names of files for the table and the counter
 	//string lWall = "wall.jpg", lClosed = "door_closed.jpg", lOpen = "door_open.jpg";
 
 	//calls surface class and goes into image class
-	Table table; 
-	Counter counter;
+	//Table table; 
+	//Counter counter;
 
 	//Surface wall(0, 0, lWall);
 
@@ -49,23 +55,23 @@ int main(void)
 	sf::Sprite ground;
 
 	//calls Chair constructor, goes into Images class, sets the positions for the chair
-	Chair chair(15), chair2(58), chair3(101), chair4(144), chair5(187), chair6(230), chair7(273), chair8(310);
+//	Chair chair(15), chair2(58), chair3(101), chair4(144), chair5(187), chair6(230), chair7(273), chair8(310);
 
 
 	//-----------------------consider vectors for multiple food items and chairs--------------------//
-	//set food functions 
-	Food taco1(760, 55, 1);
-	Food cheesecake1(760, 144, 2);
-	Food chili1(760, 230, 3);
-
+	////set food functions 
+	//Food taco1(760, 55, 1);
+	//Food cheesecake1(760, 144, 2);
+	//Food chili1(760, 230, 3);
+	Food taco1(tempTaco), cheesecake1(tempCheesecake), chili1(tempChili);
 
 	vector<Food> Plates;
-	Plates.push_back(taco1);
+	//Plates.push_back(taco1);
 
 
 	/*-------------------Characters ------------------------------*/
-	Andy andy;
-	Server server;
+	Andy andy(tempAndy);
+	Server server(tempServer);
 
 
 	/*-------------------Time ------------------------------*/
@@ -117,16 +123,30 @@ int main(void)
 
 		/*-----------------------------Window------------------------------------*/
 	
+		/*
 
+
+		*/
 		while (window.isOpen())
 		{
 			sf::Event event;
 
 			while (window.pollEvent(event))
 			{
-				if (event.type == sf::Event::Closed)
-					window.close();
+				switch(event.type){
 
+				case Event::Closed:
+					window.close();
+					break;
+				case Event::KeyPressed:
+					cout << event.key.code << endl;
+					server.keyListener(event.key.code);
+					server.updatePosition(server);
+					break;
+
+				default:
+					break;
+				}
 			}
 
 			
@@ -134,30 +154,31 @@ int main(void)
 			window.clear();
 
 			window.draw(ground);
-		//	window.draw(wall.getSprite());
-			window.draw(counter.getSprite());
 
-			window.draw(chair.getSprite());
+			//window.draw(counter.getSprite());
+
+			/*window.draw(chair.getSprite());
 			window.draw(chair2.getSprite());
 			window.draw(chair3.getSprite());
 			window.draw(chair4.getSprite());
 			window.draw(chair5.getSprite());
 			window.draw(chair6.getSprite());
 			window.draw(chair7.getSprite());
-			window.draw(chair8.getSprite());
+			window.draw(chair8.getSprite());*/
 
-			window.draw(table.getSprite());
-
-			//window.draw(server.getSprite());
+//			window.draw(table.getSprite());
+			
+			window.draw(server.getSprite());
 			//window.draw(andy.getSprite());
 
-
+			/*window.display();
 			window.draw(cheesecake1.getSprite());
 			window.draw(taco1.getSprite());
-			window.draw(chili1.getSprite());
+			window.draw(chili1.getSprite());*/
+
 
 			window.display();
-		}//while window.isOpen()
+		}
 
 	} while (option != 0);
 

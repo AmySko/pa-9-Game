@@ -51,7 +51,7 @@ void Menu::printMenu()
 makes sure its in bounds
 returns the option*/
 int Menu::getOption()
-{
+{	
 	int option = 0;
 
 	printMenu();

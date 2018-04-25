@@ -22,9 +22,9 @@ using std::string;
 class Counter : public Furniture
 {
 public:
-	Counter()
+	Counter(Images &temp) : Furniture(temp)
 	{
-		Images flat;
+		/*Images flat;
 		pCounter = nullptr;
 
 		pCounter = new Images(flat);
@@ -37,7 +37,7 @@ public:
 			pCounter->setTargetY(320.0f);
 
 			pCounter->display();
-		}
+		}*/
 	}
 
 	/*---------------getters-------------------------------*/

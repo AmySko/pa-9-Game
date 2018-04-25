@@ -20,10 +20,10 @@ using std::cin;
 
 
 
-class Furniture: public Images
+class Furniture : public Images
 {
 public:
-	Furniture()
+	Furniture(Images &temp) : Images(temp)
 	{
 		
 	}

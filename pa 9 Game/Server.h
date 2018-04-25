@@ -14,18 +14,15 @@
 #include "Multiple_images.h"
 #include "Person.h"
 
-class Server : public Images
+class Server : public Person
 {
 public:
-	Server()
+	Server(Images &temp) : Person(temp)
 	{
-		pServer = nullptr;
-		Xaxis = 0;
-		Yaxis = 0;
-	}
+		/*pServer = nullptr;
+		setXpos(25);
+		setYpos(25);
 
-	Server(int Xaxis, int Yaxis)
-	{
 		Images dude;
 		pServer = nullptr;
 
@@ -33,37 +30,31 @@ public:
 		if (pServer != nullptr)
 		{
 			pServer->setName("Dwight.jpg");
-			pServer->setXaxis(Xaxis);
-			pServer->setYaxis(Yaxis);
+			pServer->setXaxis(getXPos());
+			pServer->setYaxis(getYPos());
 			pServer->setTargetX(40.0f);
 			pServer->setTargetY(35.0f);
 
 			pServer->display();
-		}
+		}*/
+	}
+
+
+	Images & updatePosition(Images &pServer) {
+		
+		pServer.setXaxis(getXaxis());
+		pServer.setYaxis(getYaxis());
+		pServer.display();
+		return pServer;
 	}
 
 	~Server();
 
-	/*---------------getters-------------------------------*/
-	int getXaxis();
-	int getYaxis();
-
-	Sprite getSprite();
-
-
-	/*---------------setters-------------------------------*/
-	void setXaxis(int newXaxis);
-	void setYaxis(int newYaxis);
-
-
-	/*---------------Other functions-------------------------------*/
-
-	double control();
-
+	//Sprite getSprite();
+	
 
 private:
-	Images *pServer;
-	int Xaxis;
-	int Yaxis;
+	//Images *pServer;
+
 };
 

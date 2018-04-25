@@ -20,7 +20,7 @@ using std::string;
 class Images
 {
 public:
-	Images();
+	Images(string newname, int newXaxis, int newYaxis, double newtargetX, double newtargerY);
 	Images(Images &newdata);
 	~Images();
 
@@ -47,6 +47,8 @@ public:
 	void setName(string newname);
 	void setTargetX(double newtargetX);
 	void setTargetY(double newtargetY);
+
+	void setFoodImage(Images &foodI);
 
 private:
 	Texture pic;
