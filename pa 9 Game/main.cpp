@@ -36,6 +36,7 @@ int main(void)
 {
 	/**************************************************Initalizing Variables**************************************************************/
 	/*-----------------------------temp images--------------------------*/
+
 	Images tempServer("Dwight.jpg", 300, 25, 40.0f, 35.0f), tempAndy("o'fallon.png", 0, 350, 40.0f, 35.0f);
 	Images tempTaco("taco_butt.png", 760, 55, 30.0f, 25.0f), tempCheesecake("Cheesecake.png", 760, 144, 30.0f, 25.0f), tempChili("chili.png", 760, 230, 30.0f, 25.0f);
 
@@ -140,7 +141,7 @@ int main(void)
 				case Event::KeyPressed:
 					cout << event.key.code << endl;
 					server.keyListener(event.key.code);
-					server.updatePosition();
+					server.updatePosition(server);
 					break;
 
 				default:
@@ -167,7 +168,7 @@ int main(void)
 
 //			window.draw(table.getSprite());
 			
-			window.draw(tempServer.getSprite());
+			window.draw(server.getSprite());
 			//window.draw(andy.getSprite());
 
 			/*window.display();

@@ -24,6 +24,7 @@ class Person : public Images
 public: 
 	Person(Images &temp) : Images(temp)
 	{
+
 		temp.display();
 	}
 

@@ -40,19 +40,21 @@ public:
 	}
 
 
-	void updatePosition() {
-		pServer->setXaxis(getXPos());
-		pServer->setYaxis(getYPos());
-		pServer->display();
+	void updatePosition(Images &pServer) {
+
+		
+		pServer.setXaxis(getXPos());
+		pServer.setYaxis(getYPos());
+		pServer.display();
 	}
 
 	~Server();
 
-	Sprite getSprite();
+	//Sprite getSprite();
 	
 
 private:
-	Images *pServer;
+	//Images *pServer;
 
 };
 
