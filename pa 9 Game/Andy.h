@@ -23,23 +23,6 @@ public:
 	}
 
 
-	//Andy(int Xaxis, int Yaxis)
-	//{
-	//	/*Images dude;
-	//	pAndy = nullptr;
-
-	//	pAndy = new Images(dude);
-	//	if (pAndy != nullptr)
-	//	{
-	//		pAndy->setName("o'fallon.png");
-	//		pAndy->setXaxis(Xaxis);
-	//		pAndy->setYaxis(Yaxis);
-	//		pAndy->setTargetX(40.0f);
-	//		pAndy->setTargetY(35.0f);
-
-	//		pAndy->display();
-	//	}*/
-	//}
 
 	~Andy();
 
@@ -54,6 +37,10 @@ public:
 
 
 	/*---------------Other functions-------------------------------*/
+	virtual void printType()
+	{
+		cout << "Andy!" << std::endl;
+	}
 
 private:
 	/*Person *perAndy;

@@ -46,7 +46,10 @@ public:
 	/*---------------Other Functions-------------------------------*/
 	//
 	//bool isFurniture(int Xaxis[], int Yaxis[]);
-
+	virtual void printType()
+	{
+		cout << "Counter!" << std::endl;
+	}
 
 private:
 	//Images *pCounter;

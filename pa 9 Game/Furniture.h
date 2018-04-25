@@ -39,7 +39,10 @@ public:
 	}
 
 
-	
+	virtual void printType()
+	{
+		cout << "Furniture!" << std::endl;
+	}
 
 private:
 	bool chairEmpty;

@@ -42,6 +42,12 @@ public:
 
 	/*---------------getters-------------------------------*/
 
+
+
+	virtual void printType()
+	{
+		cout << "Table!" << std::endl;
+	}
 	
 private:
 	//Images *pTable;

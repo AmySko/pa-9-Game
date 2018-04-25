@@ -52,6 +52,10 @@ public:
 
 	//Sprite getSprite();
 	
+	virtual void printType()
+	{
+		cout << "Server!" << std::endl;
+	}
 
 private:
 	//Images *pServer;
