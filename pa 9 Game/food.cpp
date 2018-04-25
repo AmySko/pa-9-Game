@@ -17,20 +17,20 @@ Food::~Food()
 /*---------------getters-------------------------------*/
 
 
-Sprite Food::getSprite()
-{
-	//Sprite Spic;
-	Spic = pFood->getSprite();
-	return Spic;
-}
+//Sprite Food::getSprite()
+//{
+//	//Sprite Spic;
+//	Spic = pFood->getSprite();
+//	return Spic;
+//}
 
 
 /*---------------setters-------------------------------*/
 
-void Food::setSprite(Sprite newsPic)
-{
-	this->Spic = newsPic;
-}
+//void Food::setSprite(Sprite newsPic)
+//{
+//	this->Spic = newsPic;
+//}
 void Food::setFoodImage(Images &foodI)
 {
 	//maybe put this in an overloaded operator func

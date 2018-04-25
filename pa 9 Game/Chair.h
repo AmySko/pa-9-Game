@@ -44,15 +44,10 @@ public:
 
 	/*---------------getters-------------------------------*/
 
-	Sprite getSprite()
-	{
 	
-		Spic = pChair->getSprite();
-		return this->Spic;
-	}
 
 private:
-	Images *pChair;
-	Sprite Spic;
+	//Images *pChair;
+
 };
 

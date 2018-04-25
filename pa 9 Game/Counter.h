@@ -42,20 +42,14 @@ public:
 
 	/*---------------getters-------------------------------*/
 
-	Sprite getSprite()
-	{
-		Sprite Spic;
-		Spic = pCounter->getSprite();
-		return Spic;
-	}
-
+	
 	/*---------------Other Functions-------------------------------*/
 	//
 	//bool isFurniture(int Xaxis[], int Yaxis[]);
 
 
 private:
-	Images *pCounter;
+	//Images *pCounter;
 
 
 	//int Xaxis[45];

@@ -42,15 +42,8 @@ public:
 
 	/*---------------getters-------------------------------*/
 
-	Sprite getSprite()
-	{
-		Sprite Spic;
-		Spic = pTable->getSprite();
-		return Spic;
-	}
-
-
+	
 private:
-	Images *pTable;
+	//Images *pTable;
 
 };

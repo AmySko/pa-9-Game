@@ -46,8 +46,6 @@ public:
 	int getXaxis();
 	int getYaxis();
 
-	Sprite getSprite();
-
 
 	/*---------------setters-------------------------------*/
 	void setXaxis(int newXaxis);
@@ -57,8 +55,8 @@ public:
 	/*---------------Other functions-------------------------------*/
 
 private:
-	Person *perAndy;
-	Images *pAndy;
+	/*Person *perAndy;
+	Images *pAndy;*/
 	int Xaxis;
 	int Yaxis;
 };

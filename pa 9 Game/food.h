@@ -66,11 +66,11 @@ public:
 	/*---------------getters-------------------------------*/
 
 
-	Sprite getSprite();
+	//Sprite getSprite();
 	
 	/*---------------setters-------------------------------*/
 
-	void setSprite(Sprite newsPic);
+	//void setSprite(Sprite newsPic);
 	void setFoodImage(Images &foodI);
 
 	/*---------------Other Functions-------------------------------*/
