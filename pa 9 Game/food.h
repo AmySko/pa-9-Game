@@ -44,7 +44,7 @@ public:
 	/*---------------Other Functions-------------------------------*/
 	Images & operator= (Images &rhs);
 
-	void cipherKeyGrab(int &carrying, Images &gFood, Sprite waiter, int &index);
+	bool cipherKeyGrab(int &carrying, Images &gFood, Sprite waiter, int &index);
 	bool carrytoDrop(Sprite &sGrab, sf::FloatRect boundsWaiter);
 	bool grabFood(Images &gFood, sf::FloatRect boundsWaiter);
 

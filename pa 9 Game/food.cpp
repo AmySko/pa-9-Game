@@ -51,8 +51,9 @@ carrying:
 	2 not carrying, just continue
 	3 carrying and move
 */
-void Food::cipherKeyGrab(int &carrying, Images &gFood, Sprite waiter, int &index) //may want an if statement in main to shorten
+bool Food::cipherKeyGrab(int &carrying, Images &gFood, Sprite waiter, int &index) //may want an if statement in main to shorten
 {
+	bool update = false;
 	sf::FloatRect boundsWaiter;
 	boundsWaiter = waiter.getGlobalBounds();
 
@@ -62,11 +63,34 @@ void Food::cipherKeyGrab(int &carrying, Images &gFood, Sprite waiter, int &index
 		carrying = 2;
 		break;
 	case 1://F pressed see if can pick up and do so
+
+		if (index < 8)
+		{
+			index++;
+		}
+		else
+		{
+			index = 1;
+		}
+
 		if (grabFood(gFood, boundsWaiter))
 		{
+			gFood.display();
 			carrying = 3;
+			update = true;
 		}
-		gFood.display();
+		else
+		{
+			if (index != 1)
+			{
+				--index;
+			}
+			else
+			{
+				index = 8;
+			}
+		}
+		
 		break;
 	case 2://do nothing
 
@@ -76,6 +100,7 @@ void Food::cipherKeyGrab(int &carrying, Images &gFood, Sprite waiter, int &index
 		gFood.display();
 		break;
 	}
+	return update;
 }
 
 

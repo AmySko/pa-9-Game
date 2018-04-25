@@ -48,7 +48,7 @@ int main(void)
 		chair7("round-wood1.jpg", 270, 273, 30.0f, 25.0f), chair8("round-wood1.jpg", 270, 310, 30.0f, 25.0f);
 
 	
-	Food gFood[8] = {tempTaco, tempTaco, tempTaco, tempTaco,tempTaco, tempTaco, tempTaco, tempTaco};
+	Food gFood[9] = {tempTaco, tempTaco, tempTaco, tempTaco,tempTaco, tempTaco, tempTaco, tempTaco, tempTaco};
 	//Food *gFood(tempTaco);
 	//names of files for the table and the counter
 	//string lWall = "wall.jpg", lClosed = "door_closed.jpg", lOpen = "door_open.jpg";
@@ -92,8 +92,9 @@ int main(void)
 	sf::Time walkout; //how long Andy is willing to wait
 
 	int carrying = 0;
-	int index = 0;
-
+	int index = 1;
+	bool updateI = false;
+	int i = 0;
 	/**************************************************Coding the screen**************************************************************/
 	
 	/*------------------------------------Menu--------------------------------*/
@@ -152,10 +153,9 @@ int main(void)
 				case Event::KeyPressed:
 					cout << event.key.code << endl;
 					server.keyListener(event.key.code, carrying);
-					gFood[index].cipherKeyGrab(carrying, gFood[index], server.getSprite(), index);
+					updateI = gFood[index].cipherKeyGrab(carrying, gFood[index], server.getSprite(), index);
 					//displays moving server
 					server.display();
-
 					
 					break;
 
@@ -186,7 +186,7 @@ int main(void)
 			window.draw(server.getSprite());
 			window.draw(andy.getSprite());
 
-			window.draw(gFood[0].getSprite());
+			//ignoring gFood[0]
 			window.draw(gFood[1].getSprite());
 			window.draw(gFood[2].getSprite());
 			window.draw(gFood[3].getSprite());
@@ -194,7 +194,8 @@ int main(void)
 			window.draw(gFood[5].getSprite());
 			window.draw(gFood[6].getSprite());
 			window.draw(gFood[7].getSprite());
-
+			window.draw(gFood[8].getSprite());
+			
 
 			window.draw(cheesecake1.getSprite());
 			window.draw(taco1.getSprite());
