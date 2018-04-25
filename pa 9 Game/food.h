@@ -31,35 +31,7 @@ public:
 		setFoodImage(temp);
 	}
 
-	//Food(int Xaxis, int Yaxis, int option)
-	//{
-	//	Images foodPic;
-	//	pFood = nullptr;
-
-	//	pFood = new Images(foodPic);
-	//	if (pFood != nullptr)
-	//	{
-	//		switch (option)
-	//		{
-	//		case 1: pFood->setName("taco_butt.png");
-	//			Plates.push_back(count += 1);
-	//			break;
-	//		case 2: pFood->setName("Cheesecake.png");
-	//			Plates.push_back(count += 1);
-	//			break;
-	//		case 3: pFood->setName("chili.png");
-	//			Plates.push_back(count += 1);
-	//			break;
-	//		}
-	//		//---------------this Xaxis may need to change since the food will move with the server ----------------------//
-	//		pFood->setXaxis(Xaxis);
-	//		pFood->setYaxis(Yaxis);
-	//		pFood->setTargetX(30.0f);
-	//		pFood->setTargetY(25.0f);
-
-	//		pFood->display();
-	//	}
-	//}
+	
 
 	~Food();
 
@@ -76,11 +48,46 @@ public:
 	/*---------------Other Functions-------------------------------*/
 	Images & operator= (Images &rhs);
 
-	bool carrytoDrop(Sprite &sGrab, Sprite waiter);
-	bool grabFood(Sprite &sGrab, Sprite waiter);
+	void cipherKeyGrab(int carrying, Images &gFood, Sprite waiter);
+	bool carrytoDrop(Sprite &sGrab, sf::FloatRect boundsWaiter);
+	bool grabFood(Images &gFood, sf::FloatRect boundsWaiter);
+
+	void moveFood(Sprite sGrab, double moveX, double moveY);
 
 	void moveFoodX(Sprite sGrab, double moveX);
 	void moveFoodY(Sprite sGrab, double moveY);
+
+	//void newPlate(int option, Sprite &sGrab)
+	//{
+	//	Texture foodGrabbed;
+	//	switch (option)
+	//	{
+	//	case 1:
+	//		if (!foodGrabbed.loadFromFile("taco_butt.png"))
+	//		{
+	//			throw std::runtime_error("could not load image");
+	//		}
+	//		//Plates.push_back(count += 1);
+	//		break;
+	//	case 2:
+	//		if (!foodGrabbed.loadFromFile("Cheesecake.png"))
+	//		{
+	//			throw std::runtime_error("could not load image");
+	//		} 
+	//		//Plates.push_back(count += 1);
+	//		break;
+	//	case 3:
+	//		if (!foodGrabbed.loadFromFile("chili.png"))
+	//		{
+	//			throw std::runtime_error("could not load image");
+	//		} 
+	//		//Plates.push_back(count += 1);
+	//		break;
+	//	}
+	//	display();
+	//	sGrab.setTexture(foodGrabbed);
+	//	
+	//}
 
 private:
 	bool eaten(vector<int> Plates);
