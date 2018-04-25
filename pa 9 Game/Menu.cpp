@@ -63,5 +63,8 @@ int Menu::getOption()
 
 void Menu::Instructions()
 {
-	cout << " Timed, serve the Andy's give the Andy's the right food within 2 mins " << endl;
+	cout << "\tDo you think you have what it takes to play MENU? \n \t\tOr will you turnip your nose at it?\n\n"
+		"\t\tThis anticlimactic game challenges you to feed as many Andy's as you can in 2 minutes.\n\n"
+		"\t\tPress WSAD to move, F to pick up food and E to drop it. \n\tBring the food to the Andys that are sitting on the stools.\n";
+
 }
