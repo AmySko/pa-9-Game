@@ -6,9 +6,4 @@
 *
 **************************************************************/
 #include "Furniture.h"
-//
-//bool Furniture::isFurniture(int Xaxis[], int Yaxis[])
-//{
-//
-//}
-//
+

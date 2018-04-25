@@ -23,8 +23,6 @@ public:
 		setImage(temp);
 	}
 
-
-
 	~Andy();
 
 	/*---------------getters-------------------------------*/
@@ -54,8 +52,7 @@ public:
 	}
 
 private:
-	/*Person *perAndy;
-	Images *pAndy;*/
+	
 	int Xaxis;
 	int Yaxis;
 };

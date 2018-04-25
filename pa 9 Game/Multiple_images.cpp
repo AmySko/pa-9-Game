@@ -125,8 +125,3 @@ bool Images::display()
 	//would exit the function if runtime_error
 	return true;
 }
-
-//bool Images::displayVec(vector<Images> dishes)
-//{
-//
-//}

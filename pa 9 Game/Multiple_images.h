@@ -53,8 +53,7 @@ public:
 
 	/*---------------Other functions-------------------------------*/
 	bool display();
-	//bool displayVec(vector<Images> dishes);
-
+	
 
 private:
 	Texture pic;

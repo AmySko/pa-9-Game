@@ -21,10 +21,6 @@ Food::~Food()
 
 /*---------------setters-------------------------------*/
 
-//void Food::setSprite(Sprite newsPic)
-//{
-//	this->Spic = newsPic;
-//}
 void Food::setImage(Images &fooI)
 {
 	//maybe put this in an overloaded operator func
@@ -62,28 +58,27 @@ bool Food::cipherKeyGrab(int &carrying, Sprite waiter, int &index) //may want an
 	case -1://E pressed put down
 		carrying = 2;
 		update = true;
-		break;
-	case 1://F pressed see if can pick up and do so
-		//--index;
-		/*if (index < 8)
+		if (index < 8)
 		{
 			index++;
 		}
 		else
 		{
 			index = 1;
-		}*/
-		//foo = gFood[index];
+		}
+		break;
+
+	case 1://F pressed see if can pick up and do so
 		if (grabFood(boundsWaiter))
 		{
 			this->display();
 			carrying = 3;
 		}
-		
 		break;
-	case 2://do nothing
 
+	case 2://do nothing
 		break;
+
 	case 3://move where appropriate 
 		
 		moveFood((boundsWaiter.left - 30), boundsWaiter.top);
@@ -187,13 +182,3 @@ void Food::moveFoodY(Sprite sGrab, double moveY)
 }
 
 /*---------------Private Functions-------------------------------*/
-
-//bool Food::eaten(vector<Images> Plates)
-//{
-//	int i;
-//	vector<Images> Plate;
-//	//Plate.display();
-//	//Plate.
-//
-//	return false;
-//}

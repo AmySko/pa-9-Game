@@ -25,39 +25,8 @@ public:
 	Person(Images &temp) : Images(temp)
 	{
 	
-		carrying = false;
+	
 	}
-
-	//Person(string name, int Xaxis, int Yaxis, double tarX, double tarY)
-	//{
-	//	//if andy it should never carry
-	//	/*Sprite sDude;
-
-	//Food dish;
-	//Sprite sCarry; // = dish.getSprite();
-	//bool carrying;
-
-	//int xPos;
-	//int yPos;*/
-	//	Images dude;
-	//	iPerson = nullptr;
-
-	//	iPerson = new Images(dude);
-	//	if (iPerson != nullptr)
-	//	{
-	//		iPerson->setName(name);
-	//		iPerson->setXaxis(Xaxis);
-	//		iPerson->setYaxis(Yaxis);
-	//		iPerson->setTargetX(tarX);
-	//		iPerson->setTargetY(tarY);
-
-	//		iPerson->display();
-	//	}
-	//	sDude = iPerson->getSprite();
-	//	carrying = false;
-
-	//}
-
 
 	//WASD
 	/*
@@ -71,20 +40,14 @@ public:
 		2 not carrying
 		3 carrying 
 
-		bool:
-		True: carrying
-		false: not carrying
 	*/
 	int keyListener(int buttonPress, int &carrying) {
 		
 		switch(buttonPress) {
 		case 22: //W
-			/*if (carrying)
-			{
-				dish->moveFoodY(gFood.getSprite(), 5.0);
-			}*/
 			movement(buttonPress);
 			break;
+
 		case 0: //A
 			movement(buttonPress);
 			break;
@@ -145,14 +108,6 @@ virtual void printType()
 
 
 private:
-	Images *iPerson;
-
-	//Sprite sDude;
-
-	Food *dish;
-	Sprite sCarry; // = dish.getSprite();
-
-	bool carrying;
 
 };
 

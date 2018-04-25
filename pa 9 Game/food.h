@@ -56,12 +56,6 @@ public:
 	
 
 private:
-	//bool eaten(vector<Images> Plates);
-
-	//vector<Images> Plates;
-	
-	int count;
-
 	
 };
 
