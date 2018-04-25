@@ -11,7 +11,7 @@
 
 Food::~Food()
 {
-	eaten(Plates);
+	//eaten(Plates);
 }
 
 /*---------------getters-------------------------------*/
@@ -51,7 +51,7 @@ carrying:
 	2 not carrying, just continue
 	3 carrying and move
 */
-void Food::cipherKeyGrab(int &carrying, Images &gFood, Sprite waiter) //may want an if statement in main to shorten
+void Food::cipherKeyGrab(int &carrying, Images &gFood, Sprite waiter, int &index) //may want an if statement in main to shorten
 {
 	sf::FloatRect boundsWaiter;
 	boundsWaiter = waiter.getGlobalBounds();
@@ -62,17 +62,18 @@ void Food::cipherKeyGrab(int &carrying, Images &gFood, Sprite waiter) //may want
 		carrying = 2;
 		break;
 	case 1://F pressed see if can pick up and do so
-		//carrytoDrop(gFood.getSprite(), boundsWaiter);
 		if (grabFood(gFood, boundsWaiter))
 		{
 			carrying = 3;
 		}
+		gFood.display();
 		break;
 	case 2://do nothing
 
 		break;
 	case 3://move where appropriate
 		moveFood(gFood, (boundsWaiter.left - 30), boundsWaiter.top);
+		gFood.display();
 		break;
 	}
 }
@@ -105,16 +106,7 @@ The dummy sprite becomes a new plate/ the plate you are carrying
 precondition: F is true and carrytoDrop is false*/
 bool Food::grabFood(Images &gFood, sf::FloatRect boundsWaiter)
 {
-	//sf::FloatRect boundsWaiter;
 	bool grabbed = false;
-	//int option = 0;
-
-	// gives bound(0,0,0,0) //left, top, width, height
-	//boundsWaiter = waiter.getGlobalBounds();
-	
-	/*Food taco1(760, 55, 1);
-	Food cheesecake1(760, 144, 2);
-	Food chili1(760, 230, 3);*/
 
 	//if the waiter is within a certain distance of the food
 		if ((boundsWaiter.left >= (710)) && (boundsWaiter.top >= (40)) && (boundsWaiter.top <= (70))) //taco
@@ -144,13 +136,8 @@ bool Food::grabFood(Images &gFood, sf::FloatRect boundsWaiter)
 		//if the object was grabbed clone it and position it next to the server
 		if (grabbed)
 		{
-			//setFoodImage(gFood);
-			//newPlate(option, sGrab);
 			moveFood(gFood, (boundsWaiter.left - 30), boundsWaiter.top);
-			/*moveFoodX(gFood.getSprite(), (boundsWaiter.left - 30));
-			moveFoodY(gFood.getSprite(), boundsWaiter.top);*/
-			
-			gFood.display();
+			//Plates.push_back(gFood); 
 		}
 		return grabbed;
 }
@@ -186,10 +173,12 @@ void Food::moveFoodY(Sprite sGrab, double moveY)
 
 /*---------------Private Functions-------------------------------*/
 
-bool Food::eaten(vector<int> Plates)
-{
-	int i;
-
-
-	return false;
-}
+//bool Food::eaten(vector<Images> Plates)
+//{
+//	int i;
+//	vector<Images> Plate;
+//	//Plate.display();
+//	//Plate.
+//
+//	return false;
+//}

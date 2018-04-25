@@ -47,8 +47,9 @@ int main(void)
 		chair4("round-wood1.jpg", 270, 144, 30.0f, 25.0f), chair5("round-wood1.jpg", 270, 187, 30.0f, 25.0f), chair6("round-wood1.jpg", 270, 230, 30.0f, 25.0f),
 		chair7("round-wood1.jpg", 270, 273, 30.0f, 25.0f), chair8("round-wood1.jpg", 270, 310, 30.0f, 25.0f);
 
-	Food gFood(tempTaco);
-
+	
+	Food gFood[8] = {tempTaco, tempTaco, tempTaco, tempTaco,tempTaco, tempTaco, tempTaco, tempTaco};
+	//Food *gFood(tempTaco);
 	//names of files for the table and the counter
 	//string lWall = "wall.jpg", lClosed = "door_closed.jpg", lOpen = "door_open.jpg";
 
@@ -73,8 +74,8 @@ int main(void)
 	//Food chili1(760, 230, 3);
 	Food taco1(tempTaco), cheesecake1(tempCheesecake), chili1(tempChili);
 
-	vector<Food> Plates;
-	//Plates.push_back(taco1);
+	//vector<Food> Plates;
+	//Plates.push_back(tempTaco);
 
 
 	/*-------------------Characters ------------------------------*/
@@ -91,6 +92,7 @@ int main(void)
 	sf::Time walkout; //how long Andy is willing to wait
 
 	int carrying = 0;
+	int index = 0;
 
 	/**************************************************Coding the screen**************************************************************/
 	
@@ -150,12 +152,11 @@ int main(void)
 				case Event::KeyPressed:
 					cout << event.key.code << endl;
 					server.keyListener(event.key.code, carrying);
-					//server.getSprite(), gFood
-					gFood.cipherKeyGrab(carrying, gFood, server.getSprite());
+					gFood[index].cipherKeyGrab(carrying, gFood[index], server.getSprite(), index);
+					//displays moving server
 					server.display();
-					gFood.display();
-					window.draw(gFood.getSprite());
-					window.display();
+
+					
 					break;
 
 				default:
@@ -185,7 +186,15 @@ int main(void)
 			window.draw(server.getSprite());
 			window.draw(andy.getSprite());
 
-			window.draw(gFood.getSprite());
+			window.draw(gFood[0].getSprite());
+			window.draw(gFood[1].getSprite());
+			window.draw(gFood[2].getSprite());
+			window.draw(gFood[3].getSprite());
+			window.draw(gFood[4].getSprite());
+			window.draw(gFood[5].getSprite());
+			window.draw(gFood[6].getSprite());
+			window.draw(gFood[7].getSprite());
+
 
 			window.draw(cheesecake1.getSprite());
 			window.draw(taco1.getSprite());

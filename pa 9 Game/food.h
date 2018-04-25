@@ -31,14 +31,10 @@ public:
 		setFoodImage(temp);
 	}
 
-	
-
 	~Food();
 
 	/*---------------getters-------------------------------*/
 
-
-	//Sprite getSprite();
 	
 	/*---------------setters-------------------------------*/
 
@@ -48,7 +44,7 @@ public:
 	/*---------------Other Functions-------------------------------*/
 	Images & operator= (Images &rhs);
 
-	void cipherKeyGrab(int &carrying, Images &gFood, Sprite waiter);
+	void cipherKeyGrab(int &carrying, Images &gFood, Sprite waiter, int &index);
 	bool carrytoDrop(Sprite &sGrab, sf::FloatRect boundsWaiter);
 	bool grabFood(Images &gFood, sf::FloatRect boundsWaiter);
 
@@ -57,51 +53,16 @@ public:
 	void moveFoodX(Sprite sGrab, double moveX);
 	void moveFoodY(Sprite sGrab, double moveY);
 
-	//void newPlate(int option, Sprite &sGrab)
-	//{
-	//	Texture foodGrabbed;
-	//	switch (option)
-	//	{
-	//	case 1:
-	//		if (!foodGrabbed.loadFromFile("taco_butt.png"))
-	//		{
-	//			throw std::runtime_error("could not load image");
-	//		}
-	//		//Plates.push_back(count += 1);
-	//		break;
-	//	case 2:
-	//		if (!foodGrabbed.loadFromFile("Cheesecake.png"))
-	//		{
-	//			throw std::runtime_error("could not load image");
-	//		} 
-	//		//Plates.push_back(count += 1);
-	//		break;
-	//	case 3:
-	//		if (!foodGrabbed.loadFromFile("chili.png"))
-	//		{
-	//			throw std::runtime_error("could not load image");
-	//		} 
-	//		//Plates.push_back(count += 1);
-	//		break;
-	//	}
-	//	display();
-	//	sGrab.setTexture(foodGrabbed);
-	//	
-	//}
+	
 
 private:
-	bool eaten(vector<int> Plates);
+	//bool eaten(vector<Images> Plates);
 
-	vector<int> Plates;
+	//vector<Images> Plates;
 	
 	int count;
 
-	Images *pFood;
-
-	Sprite Spic;
-
-	bool isPickedUp;
-
+	
 };
 
 
