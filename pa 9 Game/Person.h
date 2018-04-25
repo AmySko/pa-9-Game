@@ -138,23 +138,6 @@ public:
 		}
 }
 
-int getXPos() {
-	return this->xPos;
-}
-
-int getYPos() {
-	return this->yPos;
-}
-
-/*---------------setters-------------------------------*/
-void setXpos(int newXPos) {
-	this->xPos = newXPos;
-}
-
-void setYpos(int newYPos) {
-	this->yPos = newYPos;
-}
-
 
 
 private:
@@ -164,9 +147,8 @@ private:
 
 	Food *dish;
 	Sprite sCarry; // = dish.getSprite();
+
 	bool carrying;
 
-	int xPos;
-	int yPos;
 };
 

@@ -29,6 +29,8 @@ influences:
 #include "Person.h"
 #include "Andy.h"
 #include "Server.h"
+#include <chrono>
+#include <iostream>
 
 using namespace sf;
 
@@ -37,22 +39,20 @@ int main(void)
 	/**************************************************Initalizing Variables**************************************************************/
 	/*-----------------------------temp images--------------------------*/
 
-	Images tempServer("Dwight.jpg", 450, 25, 40.0f, 35.0f), tempAndy("o'fallon.png", 0, 350, 40.0f, 35.0f);
-	Images tempTaco("taco_butt.png", 760, 55, 30.0f, 25.0f), tempCheesecake("Cheesecake.png", 760, 144, 30.0f, 25.0f), 
+	Images tempServer("Dwight.jpg", 450, 25, 40.0f, 35.0f);
+	Images tempTaco("taco_butt.png", 760, 55, 30.0f, 25.0f), tempCheesecake("Cheesecake.png", 760, 144, 30.0f, 25.0f),
 		tempChili("chili.png", 760, 230, 30.0f, 25.0f);
+
 	Images table("dark-oak-table-top.jpg", 300, 15, 50.0f, 320.0f), counter("marble2.jpg", 755, 15, 50.0f, 320.0f);
+
 	Images chair("round-wood1.jpg", 270, 15, 30.0f, 25.0f), chair2("round-wood1.jpg", 270, 58, 30.0f, 25.0f), chair3("round-wood1.jpg", 270, 101, 30.0f, 25.0f),
 		chair4("round-wood1.jpg", 270, 144, 30.0f, 25.0f), chair5("round-wood1.jpg", 270, 187, 30.0f, 25.0f), chair6("round-wood1.jpg", 270, 230, 30.0f, 25.0f),
 		chair7("round-wood1.jpg", 270, 273, 30.0f, 25.0f), chair8("round-wood1.jpg", 270, 310, 30.0f, 25.0f);
 
+	Chair chairList[8] = { chair, chair2, chair3, chair4, chair5, chair6, chair7, chair8 };
+
 	//names of files for the table and the counter
 	//string lWall = "wall.jpg", lClosed = "door_closed.jpg", lOpen = "door_open.jpg";
-
-	//calls surface class and goes into image class
-	//Table table; 
-	//Counter counter;
-
-	//Surface wall(0, 0, lWall);
 
 	//background 
 	sf::Texture background;
@@ -74,7 +74,7 @@ int main(void)
 
 
 	/*-------------------Characters ------------------------------*/
-	Andy andy(tempAndy);
+
 	Server server(tempServer);
 
 
@@ -87,11 +87,14 @@ int main(void)
 	sf::Time walkout; //how long Andy is willing to wait
 
 
+
+
 	/**************************************************Coding the screen**************************************************************/
-	
+
 	/*------------------------------------Menu--------------------------------*/
 	Menu menu;
 	int option;
+	void srand(int seed);
 
 	do {
 		do {
@@ -123,21 +126,67 @@ int main(void)
 
 		*/
 
-
+		Images AndyArray[8];
 
 		/*-----------------------------Window------------------------------------*/
-	
+
 		/*
 
 
 		*/
+		//sets time for game to end
+		std::chrono::steady_clock::time_point tend = std::chrono::steady_clock::now()
+			+ std::chrono::minutes(2);
+
+
+
+		//initial time to spawn an andy
+		std::chrono::steady_clock::time_point timeToGenAndy = tend - std::chrono::seconds(105);
+
+		//initializes andy array
+
+		Images tempAndy1("o'fallon.png", 0, chairList[0].getYaxis(), 40.0f, 35.0f);
+		Images tempAndy2("o'fallon.png", 0, chairList[1].getYaxis(), 40.0f, 35.0f);
+		Images tempAndy3("o'fallon.png", 0, chairList[2].getYaxis(), 40.0f, 35.0f);
+		Images tempAndy4("o'fallon.png", 0, chairList[3].getYaxis(), 40.0f, 35.0f);
+		Images tempAndy5("o'fallon.png", 0, chairList[4].getYaxis(), 40.0f, 35.0f);
+		Images tempAndy6("o'fallon.png", 0, chairList[5].getYaxis(), 40.0f, 35.0f);
+		Images tempAndy7("o'fallon.png", 0, chairList[6].getYaxis(), 40.0f, 35.0f);
+		Images tempAndy8("o'fallon.png", 0, chairList[7].getYaxis(), 40.0f, 35.0f);
+
+		Andy andy1(tempAndy1);
+		Andy andy2(tempAndy2);
+		Andy andy3(tempAndy3);
+		Andy andy4(tempAndy4);
+		Andy andy5(tempAndy5);
+		Andy andy6(tempAndy6);
+		Andy andy7(tempAndy7);
+		Andy andy8(tempAndy8);
+		AndyArray[0] = andy1;
+		AndyArray[1] = andy2;
+		AndyArray[2] = andy3;
+		AndyArray[3] = andy4;
+		AndyArray[4] = andy5;
+		AndyArray[5] = andy6;
+		AndyArray[6] = andy7;
+		AndyArray[7] = andy8;
+
+
+
+
+
+
+
 		while (window.isOpen())
 		{
+
+
 			sf::Event event;
 
 			while (window.pollEvent(event))
 			{
-				switch(event.type){
+
+				switch (event.type) {
 
 				case Event::Closed:
 					window.close();
@@ -147,19 +196,37 @@ int main(void)
 					server.keyListener(event.key.code);
 					server.display();
 					break;
-
 				default:
 					break;
 				}
+				//spawns andys
+
+				//ends game
+				if (std::chrono::steady_clock::now() > tend) {
+					return 0;
+				}
 			}
 
-			
+
 			/*------------------------------Draws----------------------------------*/
+
 			window.clear();
 
 			window.draw(ground);
 
 			window.draw(counter.getSprite());
+
+
+	
+			for (int i = 0; i < 8; i++) {
+				if (chairList[i].getChairStatus() == true) {
+					window.draw(AndyArray[i].getSprite());
+
+					cout << "WHAT THE HELL RIGHT?!" << std::endl;
+
+				}
+			}
+
 
 			window.draw(chair.getSprite());
 			window.draw(chair2.getSprite());
@@ -169,11 +236,9 @@ int main(void)
 			window.draw(chair6.getSprite());
 			window.draw(chair7.getSprite());
 			window.draw(chair8.getSprite());
-
 			window.draw(table.getSprite());
-			
+
 			window.draw(server.getSprite());
-			window.draw(andy.getSprite());
 
 			window.draw(cheesecake1.getSprite());
 			window.draw(taco1.getSprite());
@@ -184,9 +249,6 @@ int main(void)
 		}
 
 	} while (option != 0);
-
 	return 0;
 }
-
-
 

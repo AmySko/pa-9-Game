@@ -25,19 +25,24 @@ class Furniture : public Images
 public:
 	Furniture(Images &temp) : Images(temp)
 	{
-		
+		chairEmpty = true;
 	}
 
-	/*---------------getters-------------------------------*/
+	void setChairStatus(int signal) {
+		if (signal == 1) {
+			chairEmpty = false;
+		}
+	}
 
-	/*---------------setters-------------------------------*/
+	bool getChairStatus() {
+		return chairEmpty;
+	}
 
-	/*---------------Other Functions-------------------------------*/
-	//
-	//virtual bool isFurniture(int Xaxis[], int Yaxis[]) = 0; 
+
+	
 
 private:
-	
+	bool chairEmpty;
 };
 
 
