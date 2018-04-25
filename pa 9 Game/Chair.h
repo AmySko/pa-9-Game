@@ -23,31 +23,8 @@ public:
 	{
 
 	}
-
-	/*Chair(int Yaxis)
-	{
-		Images stool;
-		pChair = nullptr;
-
-		pChair = new Images(stool);
-		if (pChair != nullptr)
-		{
-			pChair->setName("round-wood1.jpg");
-			pChair->setXaxis(270);
-			pChair->setYaxis(Yaxis);
-			pChair->setTargetX(30.0f);
-			pChair->setTargetY(25.0f);
-
-			pChair->display();
-		}*/
-	//}
-
-	/*---------------getters-------------------------------*/
-
 	
-
 private:
-	//Images *pChair;
-
+	
 };
 

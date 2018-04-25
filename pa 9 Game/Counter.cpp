@@ -1,6 +1,5 @@
 /**************************************************************
-*	Amber Skogen
-*	Tyler Scheffler
+*	Tyler Scheffler ,Amber Skogen
 *	25 April 2018
 *	pa 9 Game
 *

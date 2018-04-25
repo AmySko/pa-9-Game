@@ -22,6 +22,7 @@ using std::vector;
 class Images
 {
 public:
+	Images() = default;
 	Images(string newname, int newXaxis, int newYaxis, double newtargetX, double newtargerY);
 	Images(Images &newdata);
 	~Images();

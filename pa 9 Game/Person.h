@@ -154,27 +154,12 @@ public:
 		}
 }
 
-int getXPos() {
-	return this->xPos;
-}
-
-int getYPos() {
-	return this->yPos;
-}
-
-/*---------------setters-------------------------------*/
-void setXpos(int newXPos) {
-	this->xPos = newXPos;
-}
-
-void setYpos(int newYPos) {
-	this->yPos = newYPos;
-}
 
 virtual void printType()
 {
 	cout << "Person!" << std::endl;
 }
+
 
 private:
 	Images *iPerson;
@@ -183,9 +168,8 @@ private:
 
 	Food *dish;
 	Sprite sCarry; // = dish.getSprite();
+
 	bool carrying;
 
-	int xPos;
-	int yPos;
 };
 
