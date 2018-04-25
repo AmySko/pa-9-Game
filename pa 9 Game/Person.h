@@ -171,7 +171,10 @@ void setYpos(int newYPos) {
 	this->yPos = newYPos;
 }
 
-
+virtual void printType()
+{
+	cout << "Person!" << std::endl;
+}
 
 private:
 	Images *iPerson;

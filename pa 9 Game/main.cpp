@@ -49,6 +49,7 @@ int main(void)
 
 	
 	Food gFood[9] = {tempTaco, tempTaco, tempTaco, tempTaco,tempTaco, tempTaco, tempTaco, tempTaco, tempTaco};
+	Food foo(tempTaco);
 	//Food *gFood(tempTaco);
 	//names of files for the table and the counter
 	//string lWall = "wall.jpg", lClosed = "door_closed.jpg", lOpen = "door_open.jpg";
@@ -145,7 +146,7 @@ int main(void)
 
 			while (window.pollEvent(event))
 			{
-				switch(event.type){
+				switch (event.type) {
 
 				case Event::Closed:
 					window.close();
@@ -153,9 +154,19 @@ int main(void)
 				case Event::KeyPressed:
 					cout << event.key.code << endl;
 					server.keyListener(event.key.code, carrying);
-					updateI = gFood[index].cipherKeyGrab(carrying, gFood[index], server.getSprite(), index);
+					updateI = gFood[index].cipherKeyGrab(carrying, gFood[i], gFood[i], server.getSprite(), index);
 					//displays moving server
 					server.display();
+
+					if (index != 1)
+					{
+						i = index - 1;
+					}
+					else
+					{
+						i = 1;
+					}
+
 					
 					break;
 
@@ -196,9 +207,8 @@ int main(void)
 			window.draw(gFood[7].getSprite());
 			window.draw(gFood[8].getSprite());
 			
-
-			window.draw(cheesecake1.getSprite());
 			window.draw(taco1.getSprite());
+			window.draw(cheesecake1.getSprite());
 			window.draw(chili1.getSprite());
 
 
