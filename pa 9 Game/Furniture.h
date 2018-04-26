@@ -32,6 +32,10 @@ public:
 		if (signal == 1) {
 			chairEmpty = false;
 		}
+		else
+		{
+			chairEmpty = true;
+		}
 	}
 
 	bool getChairStatus() {
@@ -39,7 +43,10 @@ public:
 	}
 
 
-	
+	virtual void printType()
+	{
+		cout << "Furniture!" << std::endl;
+	}
 
 private:
 	bool chairEmpty;

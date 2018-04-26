@@ -75,20 +75,34 @@ int main(void)
 
 
 	//-----------------------consider vectors for multiple food items and chairs--------------------//
-	////set food functions 
-	//Food taco1(760, 55, 1);
-	//Food cheesecake1(760, 144, 2);
-	//Food chili1(760, 230, 3);
+	
 	Food taco1(tempTaco), cheesecake1(tempCheesecake), chili1(tempChili);
-
-	//vector<Food> Plates;
-	//Plates.push_back(tempTaco);
 
 
 	/*-------------------Characters ------------------------------*/
 
 	Server server(tempServer);
 
+	//initializes andy array
+
+	Images tempAndy1("o'fallon.png", 0, chairList[0].getYaxis(), 40.0f, 35.0f);
+	Images tempAndy2("o'fallon.png", 0, chairList[1].getYaxis(), 40.0f, 35.0f);
+	Images tempAndy3("o'fallon.png", 0, chairList[2].getYaxis(), 40.0f, 35.0f);
+	Images tempAndy4("o'fallon.png", 0, chairList[3].getYaxis(), 40.0f, 35.0f);
+	Images tempAndy5("o'fallon.png", 0, chairList[4].getYaxis(), 40.0f, 35.0f);
+	Images tempAndy6("o'fallon.png", 0, chairList[5].getYaxis(), 40.0f, 35.0f);
+	Images tempAndy7("o'fallon.png", 0, chairList[6].getYaxis(), 40.0f, 35.0f);
+	Images tempAndy8("o'fallon.png", 0, chairList[7].getYaxis(), 40.0f, 35.0f);
+
+	Andy andy1(tempAndy1);
+	Andy andy2(tempAndy2);
+	Andy andy3(tempAndy3);
+	Andy andy4(tempAndy4);
+	Andy andy5(tempAndy5);
+	Andy andy6(tempAndy6);
+	Andy andy7(tempAndy7);
+	Andy andy8(tempAndy8);
+	Andy AndyArray[8] = { andy1, andy2, andy3, andy4, andy5, andy6, andy7, andy8 };
 
 	/*-------------------Time ------------------------------*/
 
@@ -101,12 +115,11 @@ int main(void)
 
 
 
-
 	int carrying = 0;
 	int index = 1;
 	bool updateI = false;
 	int i = 0;
-
+	int carryinga = 2;
 	/**************************************************Coding the screen**************************************************************/
 
 	/*------------------------------------Menu--------------------------------*/
@@ -137,62 +150,18 @@ int main(void)
 		ground.setTexture(background);
 
 
-		/*
-		code on spawning multiple enemies I found, perhaps could be usefull for spawning Andy's
-
-		https://www.gamedev.net/forums/topic/650440-help-with-multiple-shapessprites-sfml/
-
-		*/
-
-		Images AndyArray[8];
-
 		/*-----------------------------Window------------------------------------*/
 
-		/*
-
-
-		*/
+		
 		//sets time for game to end
 		std::chrono::steady_clock::time_point tend = std::chrono::steady_clock::now()
 			+ std::chrono::minutes(2);
 
 
-
 		//initial time to spawn an andy
 		std::chrono::steady_clock::time_point timeToGenAndy = tend - std::chrono::seconds(105);
 
-		//initializes andy array
-
-		Images tempAndy1("o'fallon.png", 0, chairList[0].getYaxis(), 40.0f, 35.0f);
-		Images tempAndy2("o'fallon.png", 0, chairList[1].getYaxis(), 40.0f, 35.0f);
-		Images tempAndy3("o'fallon.png", 0, chairList[2].getYaxis(), 40.0f, 35.0f);
-		Images tempAndy4("o'fallon.png", 0, chairList[3].getYaxis(), 40.0f, 35.0f);
-		Images tempAndy5("o'fallon.png", 0, chairList[4].getYaxis(), 40.0f, 35.0f);
-		Images tempAndy6("o'fallon.png", 0, chairList[5].getYaxis(), 40.0f, 35.0f);
-		Images tempAndy7("o'fallon.png", 0, chairList[6].getYaxis(), 40.0f, 35.0f);
-		Images tempAndy8("o'fallon.png", 0, chairList[7].getYaxis(), 40.0f, 35.0f);
-
-		Andy andy1(tempAndy1);
-		Andy andy2(tempAndy2);
-		Andy andy3(tempAndy3);
-		Andy andy4(tempAndy4);
-		Andy andy5(tempAndy5);
-		Andy andy6(tempAndy6);
-		Andy andy7(tempAndy7);
-		Andy andy8(tempAndy8);
-		AndyArray[0] = andy1;
-		AndyArray[1] = andy2;
-		AndyArray[2] = andy3;
-		AndyArray[3] = andy4;
-		AndyArray[4] = andy5;
-		AndyArray[5] = andy6;
-		AndyArray[6] = andy7;
-		AndyArray[7] = andy8;
-
-
-
-
-
+		
 
 
 		while (window.isOpen())
@@ -212,19 +181,9 @@ int main(void)
 				case Event::KeyPressed:
 					cout << event.key.code << endl;
 					server.keyListener(event.key.code, carrying);
-					updateI = gFood[index].cipherKeyGrab(carrying, gFood[i], gFood[i], server.getSprite(), index);
+					updateI = gFood[index].cipherKeyGrab(carrying, server.getSprite(), index);
 					//displays moving server
 					server.display();
-
-					if (index != 1)
-					{
-						i = index - 1;
-					}
-					else
-					{
-						i = 1;
-					}
-
 					
 					break;
 				default:
@@ -238,27 +197,14 @@ int main(void)
 				}
 			}
 
-
 			/*------------------------------Draws----------------------------------*/
 
 			window.clear();
-
+			//background
 			window.draw(ground);
-
+			//counter
 			window.draw(counter.getSprite());
-
-
-	
-			for (int k = 0; k < 8; k++) {
-				if (chairList[k].getChairStatus() == true) {
-					window.draw(AndyArray[k].getSprite());
-
-					cout << "WHAT THE HELL RIGHT?!" << std::endl;
-
-				}
-			}
-
-
+			//chairs
 			window.draw(chair.getSprite());
 			window.draw(chair2.getSprite());
 			window.draw(chair3.getSprite());
@@ -267,10 +213,23 @@ int main(void)
 			window.draw(chair6.getSprite());
 			window.draw(chair7.getSprite());
 			window.draw(chair8.getSprite());
+			//table
 			window.draw(table.getSprite());
 
+	
+			for (int k = 0; k < 8; k++) {
+				if (chairList[k].getChairStatus() == true) {
+						window.draw(AndyArray[k].getSprite());
+					AndyArray[k].keyListener(3, carryinga);
+					AndyArray[k].display();
+				
+				}
+				
+			}
+			//draw the waiter
 			window.draw(server.getSprite());
 
+			//draw the food that got picked up
 			//ignoring gFood[0]
 			window.draw(gFood[1].getSprite());
 			window.draw(gFood[2].getSprite());
@@ -281,6 +240,7 @@ int main(void)
 			window.draw(gFood[7].getSprite());
 			window.draw(gFood[8].getSprite());
 			
+			//food on the counter
 			window.draw(taco1.getSprite());
 			window.draw(cheesecake1.getSprite());
 			window.draw(chili1.getSprite());

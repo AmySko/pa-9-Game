@@ -97,7 +97,7 @@ void Images::setTargetY(double newtargetY)
 	this->targetY = newtargetY;
 }
 
-void Images::setFoodImage(Images &foodI)
+void Images::setImage(Images &fooI)
 {
 
 }
@@ -125,8 +125,3 @@ bool Images::display()
 	//would exit the function if runtime_error
 	return true;
 }
-
-//bool Images::displayVec(vector<Images> dishes)
-//{
-//
-//}

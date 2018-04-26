@@ -7,9 +7,3 @@
 **************************************************************/
 #include "Counter.h"
 
-
-//
-//bool Counter::isFurniture(int Xaxis[], int Yaxis[])
-//{
-//	
-//}

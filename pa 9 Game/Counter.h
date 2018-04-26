@@ -24,34 +24,19 @@ class Counter : public Furniture
 public:
 	Counter(Images &temp) : Furniture(temp)
 	{
-		/*Images flat;
-		pCounter = nullptr;
 
-		pCounter = new Images(flat);
-		if (pCounter != nullptr)
-		{
-			pCounter->setName("marble2.jpg");
-			pCounter->setXaxis(755);
-			pCounter->setYaxis(15);
-			pCounter->setTargetX(50.0f);
-			pCounter->setTargetY(320.0f);
-
-			pCounter->display();
-		}*/
 	}
 
 	/*---------------getters-------------------------------*/
 
 	
 	/*---------------Other Functions-------------------------------*/
-	//
-	//bool isFurniture(int Xaxis[], int Yaxis[]);
-
+	
+	virtual void printType()
+	{
+		cout << "Counter!" << std::endl;
+	}
 
 private:
-	//Images *pCounter;
-
-
-	//int Xaxis[45];
-	//int Yaxis[320];
+	
 };

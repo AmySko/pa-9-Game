@@ -25,39 +25,8 @@ public:
 	Person(Images &temp) : Images(temp)
 	{
 	
-		carrying = false;
+	
 	}
-
-	//Person(string name, int Xaxis, int Yaxis, double tarX, double tarY)
-	//{
-	//	//if andy it should never carry
-	//	/*Sprite sDude;
-
-	//Food dish;
-	//Sprite sCarry; // = dish.getSprite();
-	//bool carrying;
-
-	//int xPos;
-	//int yPos;*/
-	//	Images dude;
-	//	iPerson = nullptr;
-
-	//	iPerson = new Images(dude);
-	//	if (iPerson != nullptr)
-	//	{
-	//		iPerson->setName(name);
-	//		iPerson->setXaxis(Xaxis);
-	//		iPerson->setYaxis(Yaxis);
-	//		iPerson->setTargetX(tarX);
-	//		iPerson->setTargetY(tarY);
-
-	//		iPerson->display();
-	//	}
-	//	sDude = iPerson->getSprite();
-	//	carrying = false;
-
-	//}
-
 
 	//WASD
 	/*
@@ -71,56 +40,33 @@ public:
 		2 not carrying
 		3 carrying 
 
-		bool:
-		True: carrying
-		false: not carrying
 	*/
 	int keyListener(int buttonPress, int &carrying) {
 		
 		switch(buttonPress) {
 		case 22: //W
-			/*if (carrying)
-			{
-				dish->moveFoodY(gFood.getSprite(), 5.0);
-			}*/
 			movement(buttonPress);
 			break;
+
 		case 0: //A
-			
-			/*{
-				dish->moveFoodX(gFood.getSprite(), -5.0);
-			}*/
 			movement(buttonPress);
 			break;
+
 		case 18://S
-			/*if (carrying)
-			{
-				dish->moveFoodY(gFood.getSprite(), -5.0);
-			}*/
 			movement(buttonPress);
 			break;
+
 		case 3: //D
-			/*if (carrying)
-			{
-				cout << carrying << std::endl;
-				dish->moveFoodX(gFood.getSprite(), 5.0);
-			}*/
 			movement(buttonPress);
 			break;
+
 		case 5: carrying = 1;//F
-		//if this is true then there is a plate being carried and we want to drop it	
-		/*if (dish->carrytoDrop(gFood.getSprite(), sDude))
-		{
-			carrying = false;
-		}
-		else
-		{
-			carrying = dish->grabFood(gFood, sDude);
-		}*/
 			break;
+
 		case 4://E
 			carrying = -1;
 			break;
+
 		default:
 			break;
 		}
@@ -135,7 +81,7 @@ public:
 			}
 			break;
 		case 0:
-			if (getXaxis() - 5 > 0) {
+			if ((getXaxis() - 5 > 0) && (getXaxis() + 5 != 280)) {
 				this->setXaxis(getXaxis() - 5);
 			}
 			break;
@@ -145,7 +91,7 @@ public:
 			}
 			break;
 		case 3:
-			if (getXaxis() + 5 < 750) {
+			if ((getXaxis() + 5 < 750) && (getXaxis() + 5 != 270)) {
 				this->setXaxis(getXaxis() + 5);
 			}
 			break;
@@ -162,14 +108,6 @@ virtual void printType()
 
 
 private:
-	Images *iPerson;
-
-	//Sprite sDude;
-
-	Food *dish;
-	Sprite sCarry; // = dish.getSprite();
-
-	bool carrying;
 
 };
 

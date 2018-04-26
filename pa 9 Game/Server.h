@@ -19,24 +19,7 @@ class Server : public Person
 public:
 	Server(Images &temp) : Person(temp)
 	{
-		/*pServer = nullptr;
-		setXpos(25);
-		setYpos(25);
-
-		Images dude;
-		pServer = nullptr;
-
-		pServer = new Images(dude);
-		if (pServer != nullptr)
-		{
-			pServer->setName("Dwight.jpg");
-			pServer->setXaxis(getXPos());
-			pServer->setYaxis(getYPos());
-			pServer->setTargetX(40.0f);
-			pServer->setTargetY(35.0f);
-
-			pServer->display();
-		}*/
+		
 	}
 
 
@@ -50,11 +33,12 @@ public:
 
 	~Server();
 
-	//Sprite getSprite();
-	
+	virtual void printType()
+	{
+		cout << "Server!" << std::endl;
+	}
 
 private:
-	//Images *pServer;
-
+	
 };
 

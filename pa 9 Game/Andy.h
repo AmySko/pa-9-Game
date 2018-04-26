@@ -19,27 +19,9 @@ class Andy : public Person
 public:
 	Andy(Images &temp) : Person(temp)
 	{
-
+		temp.display();
+		setImage(temp);
 	}
-
-
-	//Andy(int Xaxis, int Yaxis)
-	//{
-	//	/*Images dude;
-	//	pAndy = nullptr;
-
-	//	pAndy = new Images(dude);
-	//	if (pAndy != nullptr)
-	//	{
-	//		pAndy->setName("o'fallon.png");
-	//		pAndy->setXaxis(Xaxis);
-	//		pAndy->setYaxis(Yaxis);
-	//		pAndy->setTargetX(40.0f);
-	//		pAndy->setTargetY(35.0f);
-
-	//		pAndy->display();
-	//	}*/
-	//}
 
 	~Andy();
 
@@ -54,10 +36,23 @@ public:
 
 
 	/*---------------Other functions-------------------------------*/
+	virtual void printType()
+	{
+		cout << "Andy!" << std::endl;
+	}
+
+	void setImage(Images &fooI)
+	{
+		//maybe put this in an overloaded operator func
+		this->setName(fooI.getName());
+		this->setXaxis(fooI.getXaxis());
+		this->setYaxis(fooI.getYaxis());
+		this->setTargetX(40.0f);
+		this->setTargetY(35.0f);
+	}
 
 private:
-	/*Person *perAndy;
-	Images *pAndy;*/
+	
 	int Xaxis;
 	int Yaxis;
 };
